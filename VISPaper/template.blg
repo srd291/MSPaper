@@ -3,44 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: template.aux
 The style file: abbrv.bst
 Database file #1: template.bib
-You've used 12 entries,
+Warning--empty journal in pangthumbs
+Warning--empty year in pangthumbs
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            581 strings with 6005 characters,
-and the built_in function-call counts, 4742 in all, are:
-= -- 465
-> -- 245
-< -- 4
-+ -- 99
-- -- 84
-* -- 357
-:= -- 774
-add.period$ -- 38
-call.type$ -- 12
-change.case$ -- 77
+            590 strings with 6359 characters,
+and the built_in function-call counts, 5583 in all, are:
+= -- 542
+> -- 296
+< -- 5
++ -- 119
+- -- 102
+* -- 418
+:= -- 907
+add.period$ -- 43
+call.type$ -- 14
+change.case$ -- 92
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 172
-empty$ -- 355
-format.name$ -- 84
-if$ -- 989
+cite$ -- 16
+duplicate$ -- 205
+empty$ -- 413
+format.name$ -- 102
+if$ -- 1165
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 13
-newline$ -- 63
-num.names$ -- 24
-pop$ -- 80
+int.to.str$ -- 14
+missing$ -- 15
+newline$ -- 72
+num.names$ -- 28
+pop$ -- 102
 preamble$ -- 1
-purify$ -- 66
+purify$ -- 79
 quote$ -- 0
-skip$ -- 121
+skip$ -- 147
 stack$ -- 0
-substring$ -- 306
-swap$ -- 44
-text.length$ -- 4
+substring$ -- 348
+swap$ -- 55
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 46
-warning$ -- 0
-while$ -- 46
-width$ -- 14
-write$ -- 135
+type$ -- 54
+warning$ -- 2
+while$ -- 53
+width$ -- 16
+write$ -- 153
+(There were 2 warnings)

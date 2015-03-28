@@ -58,6 +58,17 @@ E.~Pampalk, A.~Rauber, and D.~Merkl.
   self-organizing maps}.
 \newblock Springer, 2002.
 
+\bibitem{pangthumbs}
+B.~Pang, L.~Lee, and S.~Vaithyanathan.
+\newblock Thumbs up? sentiment classification using machine learning
+  techniques.
+
+\bibitem{riloff2013sarcasm}
+E.~Riloff, A.~Qadir, P.~Surve, L.~De~Silva, N.~Gilbert, and R.~Huang.
+\newblock Sarcasm as contrast between a positive sentiment and negative
+  situation.
+\newblock In {\em EMNLP}, pages 704--714, 2013.
+
 \bibitem{weber2001visualizing}
 M.~Weber, M.~Alexa, and W.~M{\"u}ller.
 \newblock Visualizing time-series on spirals.

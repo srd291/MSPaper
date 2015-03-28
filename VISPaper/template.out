@@ -7,7 +7,7 @@
 \BOOKMARK [3][-]{subsubsection.2.4.1}{Clustering}{subsection.2.4}% 7
 \BOOKMARK [3][-]{subsubsection.2.4.2}{Bundling}{subsection.2.4}% 8
 \BOOKMARK [2][-]{subsection.2.5}{Predictions}{section.2}% 9
-\BOOKMARK [1][-]{section.3}{Implementation}{}% 10
+\BOOKMARK [1][-]{section.3}{Our Approach}{}% 10
 \BOOKMARK [2][-]{subsection.3.1}{Data Set}{section.3}% 11
 \BOOKMARK [2][-]{subsection.3.2}{Clustering}{section.3}% 12
 \BOOKMARK [2][-]{subsection.3.3}{Semantic}{section.3}% 13
@@ -18,13 +18,11 @@
 \BOOKMARK [2][-]{subsection.4.1}{Layers}{section.4}% 18
 \BOOKMARK [2][-]{subsection.4.2}{Cloud Reperesentation}{section.4}% 19
 \BOOKMARK [2][-]{subsection.4.3}{Line Bundling}{section.4}% 20
-\BOOKMARK [1][-]{section.5}{Fine Tuning}{}% 21
-\BOOKMARK [2][-]{subsection.5.1}{Scalability of Line Bundles}{section.5}% 22
-\BOOKMARK [1][-]{section.6}{Case Studies}{}% 23
-\BOOKMARK [2][-]{subsection.6.1}{Tweet weather correlation}{section.6}% 24
-\BOOKMARK [3][-]{subsubsection.6.1.1}{All Tweets}{subsection.6.1}% 25
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Weather related tweets}{subsection.6.1}% 26
-\BOOKMARK [2][-]{subsection.6.2}{Predicted?}{section.6}% 27
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 28
-\BOOKMARK [1][-]{section.8}{Future Work}{}% 29
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 30
+\BOOKMARK [1][-]{section.5}{Case Studies}{}% 21
+\BOOKMARK [2][-]{subsection.5.1}{Tweet weather correlation}{section.5}% 22
+\BOOKMARK [3][-]{subsubsection.5.1.1}{All Tweets}{subsection.5.1}% 23
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Weather related tweets}{subsection.5.1}% 24
+\BOOKMARK [2][-]{subsection.5.2}{Predicted?}{section.5}% 25
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 26
+\BOOKMARK [1][-]{section.7}{Future Work}{}% 27
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 28
