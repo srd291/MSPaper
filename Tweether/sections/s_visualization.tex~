@@ -14,7 +14,7 @@ The middle region contains the line bundles from the Twitter user location to th
 
 
 \subsection{Cloud Reperesentation}
-Each cluster is represented by a different color. Clusters which aren't connected of the same color indicate the same conditions such as similar temperature, in other locations of Nebraska as seen in Figure \ref{fig:blur}.
+Each cluster is represented by a different color. Clusters which aren't connected of the same color indicate the same conditions in other locations of Nebraska as seen in Figure \ref{fig:blur}.
 
 Once the cluster for each hour was attained we needed two edge points for the data to link up to. These two edge points correspond to positive and negative emotions. We had different ideas on how the points should be picked. At first we were thinking to give half of one cluster to the positive emotion and the other half to negative emotions. This method seemed like a good idea at the beginning however in the visualization the output looked cluttered as seen in Figure \ref{fig:corners}(a). The second method we tried split the cluster in half and used the center points of the two half's. This was also a good idea until we came into situations where the cluster was represented by a very small amount of data points causing the visualization to look awkward. (Figure \ref{fig:corners}) We finally decided on a method where for each cluster the positive tweets would map to top rightmost point in the cluster and the negative tweets would map to the bottom leftmost point. This reduced visual clutter and helped in situations where the cluster size is fairly small. (Figure \ref{fig:corners})
 

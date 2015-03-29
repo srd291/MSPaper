@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tweether.aux
 The style file: abbrv.bst
 Database file #1: tweether.bib
+Warning--I didn't find a database entry for "Plutchik2002"
 Warning--can't use both volume and number fields in holten2009force
 Warning--can't use both volume and number fields in hurter2012graph
 Warning--empty journal in pangthumbs
@@ -10,7 +11,7 @@ Warning--empty year in pangthumbs
 Warning--can't use both volume and number fields in telea2010image
 You've used 26 entries,
             2118 wiz_defined-function locations,
-            657 strings with 8410 characters,
+            659 strings with 8434 characters,
 and the built_in function-call counts, 10823 in all, are:
 = -- 1073
 > -- 536
@@ -49,4 +50,4 @@ warning$ -- 5
 while$ -- 104
 width$ -- 28
 write$ -- 291
-(There were 5 warnings)
+(There were 6 warnings)
