@@ -1,0 +1,43 @@
+\section{Case Studies}
+
+For our work, we have two goals. We first want to determine if there is any correlation between weather and mood. Secondly we would like to determine if our predicted mood is correct.
+
+\begin{figure*}[htp]
+  \centering
+  \subfigure[Temperatures in Omaha and Lincoln]{\includegraphics[scale=0.25]{chart1}}\quad
+  \subfigure[Sentiment of Omaha and Lincoln Tweets]{\includegraphics[scale=0.25]{chart2}}\quad
+  \subfigure[Sentiment of Omaha and Lincoln Tweets]{\includegraphics[scale=0.25]{chart3}}
+\caption{The comparison of weather to sentiment.}
+\label{fig:chart_1}
+\end{figure*}
+
+
+
+\subsection{Tweet weather correlation}
+We use two data sets to show our visualization. Using weather and twitter data from two back to back weekends we see if there is any relationship between the temperature and the overall mood of people. We are lucky that the days we chose show warmer changes in weather. Being on the brink of Spring we predict that the overall Tweets for the warmer weekend will have a more positive sentiment in comparison to the colder weekend. This weather pattern also can show any correlation we find for Seasonal Affective Disorder.
+
+\subsubsection{All Tweets}
+Of all the cities, we see that Omaha and Lincoln have the most tweets, so we will use these two cities to display our results. The weather patterns of the two weekends are shown in Figure \ref{fig:chart_1}(a). As seen in the figure, we choose to look at times where most of the population is awake (i.e. noon to 11 PM). From Figure \ref{fig:chart_1}(b) we can see the tweets and their sentiment for select days through the two weeks, where more emphasis is placed on the first week and less on the later. Each date has a positive and negative count, where we see that the pattern throughout is that the positive tweets outweigh the negative tweets. Another pattern that we see is that as the temperature increases the number of tweets increase however we see that more people tweet on Saturday than on Sunday. We think that this has to do with a number of factors; people go to church on Sunday where they choose to be among family, they do work around the house, or they don't have any eventful things which they feel they need to share.
+
+We do not see that with the change of temperature that there is a clear trend of more positive tweets versus negative tweets. The number of positive tweets is at least half the amount of negative tweets. The only item that we could see which may be weather related is that the amount of negative tweets is percentage wise far more in the colder temperatures in comparison to the warmer temperatures. In lieu of not finding any clear results, we look at tweets only with words related to weather to see if we find any trends.
+
+
+
+\subsubsection{Weather related tweets}
+
+Other than using all the tweets we collected we filter the collected tweets for weather-related terms. (i.e. snow, sunny, warm, cold, rain, etc.) We wanted to see if there was a stronger correlation in this situation compared to using all the tweets collected. In this situation, we are unfortunately limited to a few tweets. As we see in Figure \ref{fig:chart_1}(c) we see that the number of tweets drastically reduces to at most slightly less than 160 tweets for one day.
+
+Fortunately, we are able to see a pattern with weather and positive tweets. There is a spike of tweets when there is warmer weather. This pattern is seen in both sets of tweet data sets. However, we are now able to confirm that the correlation is due to weather. As the weather increased slightly on March 1st we see a spike in amount of tweets overall(Figure \ref{fig:chart_1}(b)) and also when the tweets had weather-related words(Figure \ref{fig:chart_1}(c)). We can also see that in Figure \ref{fig:chart_1}(c) that with the warmer weather the number of tweets in relation to the weather increased by approximately twice the amount. We still see the trend of more positive tweets in comparison to negative tweets when using the filtered data set.
+
+\begin{figure}[htb]
+ \centering
+ \includegraphics[scale=0.1]{steps}
+ \caption{Accuracy of the different prediction methods}
+ \label{fig:predict}
+\end{figure}
+
+\subsection{Predicted?}
+Using the same data set we select a subset of two weekends to determine if the predicted value was close to the outcome. We chose March 6th, 7th and 8th for weekend one and March 13th, 14th and 15th for weekend two. The first weekend has between 10 to 20 degrees difference to the second weekend to take into account any change in weather patterns. We collect our predictions for Saturday and Sunday and compare them to the real sentiment of each hour. Again we focus on the two most populous cities in Nebraska; Lincoln and Omaha.
+
+As we see in Figure \ref{fig:predict} the accuracy of the three methods we used are shown.
+

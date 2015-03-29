@@ -1,0 +1,155 @@
+\documentclass[journal]{vgtc}                % final (journal style)
+%\documentclass[review,journal]{vgtc}         % review (journal style)
+%\documentclass[widereview]{vgtc}             % wide-spaced review
+%\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
+%\documentclass[electronic,journal]{vgtc}     % electronic version, journal
+
+%% Uncomment one of the lines above depending on where your paper is
+%% in the conference process. ``review'' and ``widereview'' are for review
+%% submission, ``preprint'' is for pre-publication, and the final version
+%% doesn't use a specific qualifier. Further, ``electronic'' includes
+%% hyperreferences for more convenient online viewing.
+
+%% Please use one of the ``review'' options in combination with the
+%% assigned online id (see below) ONLY if your paper uses a double blind
+%% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
+%% in the past.
+
+%% Please note that the use of figures other than the optional teaser is not permitted on the first page
+%% of the journal version.  Figures should begin on the second page and be
+%% in CMYK or Grey scale format, otherwise, colour shifting may occur
+%% during the printing process.  Papers submitted with figures other than the optional teaser on the
+%% first page will be refused.
+
+%% These three lines bring in essential packages: ``mathptmx'' for Type 1
+%% typefaces, ``graphicx'' for inclusion of EPS figures. and ``times''
+%% for proper handling of the times font family.
+
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{marginnote}
+
+\newcommand{\pin}[1]{{\color{red} #1}}
+
+\graphicspath{{./images/}}
+
+%% We encourage the use of mathptmx for consistent usage of times font
+%% throughout the proceedings. However, if you encounter conflicts
+%% with other math-related packages, you may want to disable it.
+
+%% This turns references into clickable hyperlinks.
+\usepackage[bookmarks,backref=true,linkcolor=black]{hyperref} %,colorlinks
+\hypersetup{
+  pdfauthor = {},
+  pdftitle = {},
+  pdfsubject = {},
+  pdfkeywords = {},
+  colorlinks=true,
+  linkcolor= black,
+  citecolor= black,
+  pageanchor=true,
+  urlcolor = black,
+  plainpages = false,
+  linktocpage
+}
+
+%% If you are submitting a paper to a conference for review with a double
+%% blind reviewing process, please replace the value ``0'' below with your
+%% OnlineID. Otherwise, you may safely leave it at ``0''.
+\onlineid{0}
+
+%% declare the category of your paper, only shown in review mode
+\vgtccategory{Research}
+
+%% allow for this line if you want the electronic option to work properly
+\vgtcinsertpkg
+
+%% In preprint mode you may define your own headline.
+%\preprinttext{To appear in IEEE Transactions on Visualization and Computer Graphics.}
+
+%% Paper title.
+
+\title{Tweether: A Visualization Tool Displaying Correlation of \\Weather to Tweets}
+
+%% This is how authors are specified in the journal style
+
+%% indicate IEEE Member or Student Member in form indicated below
+\author{}
+\authorfooter{
+%% insert punctuation at end of each item
+
+}
+
+%other entries to be set up for journal
+\shortauthortitle{Biv \MakeLowercase{\textit{et al.}}: Global Illumination for Fun and Profit}
+%\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
+
+%% Abstract section.
+\abstract{
+As the generation of social media we can instantly express how our day is going; however, unknowingly the weather can play a key role in how we are feeling. The weather dictates our lives regardless of what may be happening. The relationship between weather and mood has been immensely studied to show that the weather does play a major factor regarding to our emotions. However, how much weather affects us and how we display the relationship using social media remain interesting questions. Based on the natural correlation between weather and moods we propose \emph{Tweether}, a real-time weather and tweet visualization, to see how Twitter users are feeling. This visualization displays a current reflection of emotions in a set of select geographic regions and also predicts possible emotions in these regions in response to the weather forecast. The visualization uses multiple layers to show the connection between locations, weather, and emotions. By aggregating multiple users with similar emotions, we create an aesthetic design that is free of visual clutter and is simple to understand in a 3D manner.
+} % end of abstract
+
+%% Keywords that describe your work. Will show as 'Index Terms' in journal
+%% please capitalize first letter and insert punctuation after last keyword
+\keywords{Time series, weather, clustering, sentiment classification, prediction, line bundling, correlation}
+
+%% ACM Computing Classification System (CCS).
+%% See <http://www.acm.org/class/1998/> for details.
+%% The ``\CCScat'' command takes four arguments.
+
+\CCScatlist{ % not used in journal version
+ \CCScat{K.6.1}{Management of Computing and Information Systems}%
+{Project and People Management}{Life Cycle};
+ \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
+}
+
+%% Uncomment below to include a teaser figure.
+   \teaser{
+   \centering
+   \includegraphics[width=16cm]{spoiler}
+   \caption{Tweether showing the real time mood of Nebraska.}
+  }
+
+%% Uncomment below to disable the manuscript note
+%\renewcommand{\manuscriptnotetxt}{}
+
+%% Copyright space is enabled by default as required by guidelines.
+%% It is disabled by the 'review' option or via the following command:
+% \nocopyrightspace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+
+\input{sections/s_introduction.tex}
+\input{sections/s_related.tex}
+\input{sections/s_approach.tex}
+\input{sections/s_visualization.tex}
+\input{sections/s_result.tex}
+\input{sections/s_discussion.tex}
+\input{sections/s_future.tex}
+\input{sections/s_conclusion.tex}
+
+
+%% if specified like this the section will be committed in review mode
+%\acknowledgments{
+%The authors wish to thank A, B, C. This work was supported in part by
+%a grant from XYZ.}
+%\newpage
+
+\bibliographystyle{abbrv}
+%%use following if all content of bibtex file should be shown
+\nocite{*}
+\bibliography{tweether}
+\end{document}
+
