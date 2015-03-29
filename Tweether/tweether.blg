@@ -1,53 +1,9 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: tweether.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: tweether.aux
 The style file: abbrv.bst
 Database file #1: tweether.bib
-Warning--I didn't find a database entry for "Plutchik2002"
 Warning--can't use both volume and number fields in holten2009force
 Warning--can't use both volume and number fields in hurter2012graph
 Warning--empty journal in pangthumbs
 Warning--empty year in pangthumbs
 Warning--can't use both volume and number fields in telea2010image
-You've used 26 entries,
-            2118 wiz_defined-function locations,
-            659 strings with 8434 characters,
-and the built_in function-call counts, 10823 in all, are:
-= -- 1073
-> -- 536
-< -- 14
-+ -- 214
-- -- 184
-* -- 804
-:= -- 1709
-add.period$ -- 83
-call.type$ -- 26
-change.case$ -- 168
-chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 408
-empty$ -- 817
-format.name$ -- 184
-if$ -- 2301
-int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 28
-newline$ -- 132
-num.names$ -- 52
-pop$ -- 185
-preamble$ -- 1
-purify$ -- 144
-quote$ -- 0
-skip$ -- 304
-stack$ -- 0
-substring$ -- 726
-swap$ -- 131
-text.length$ -- 14
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 100
-warning$ -- 5
-while$ -- 104
-width$ -- 28
-write$ -- 291
-(There were 6 warnings)
+(There were 5 warnings)
