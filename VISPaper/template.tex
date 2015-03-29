@@ -215,8 +215,8 @@ The weather data set is provided using the Weather Research and Forecasting (WRF
 The Twitter data is the live data feed from Twitter users throughout Nebraska. Only users that have opted-in to use Tweeting With Location feature turned on are used. A geographic filtering process was used to use only select cities in Nebraska. Locations for the tweets are limited to the most populous cities in Nebraska (Omaha, Lincoln, Grand Island, Kearney, Fremont, North Platte, Norfolk, Columbus, and Scottsbluff). Since Nebraska has a fairly low population with most of the land being barren, only the most populous cities were chosen. The Twitter data is stored in JSON format where we need to extract the coordinates of each tweet and the tweet itself. Due to cities being on the border of Nebraska such as Omaha, the Twitter data needs to have a second filter which removes any tweets that don't have any relation with Nebraska.
 \begin{figure}[htp]
   \centering
-  \subfigure[Map showing surrounding states with counties]{\includegraphics[scale=0.2]{mapBefore}}\quad
-  \subfigure[Map reduced to show prominance to Nebraska]{\includegraphics[scale=0.2]{mapAfter}}
+  \subfigure[Map showing surrounding states with counties]{\includegraphics[scale=0.17]{mapBefore}}\quad
+  \subfigure[Map reduced to show prominance to Nebraska]{\includegraphics[scale=0.14]{mapAfter}}
 \caption{Nebraska map before and after}
 \label{fig:maps}
 \end{figure}
@@ -389,6 +389,8 @@ As we see in Figure \ref{fig:predict} the accuracy of the three methods we used 
 
 
 \newpage
+
+...\newpage
 
 
 \section{Discussion}
