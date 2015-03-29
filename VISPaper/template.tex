@@ -191,9 +191,11 @@ Using the past Twitter data set it is necessary to predict the mood for the next
 
 
 
-\section{Our Approach}
+\section{Approach}
 
-Implementing Tweether has multiple steps which are composed of individual and interconnected parts. The steps are illustrated in Figure \ref{fig:steps} . Tweether in its simplest form takes tweets and assigns a sentiment value which is then correlated to the nearest weather cluster. Each tweet is aligned to the map of Nebraska according to its location. The current hour visualization and the prediction visualization have the same user interface.
+Implementing Tweether has multiple steps which are composed of individual and interconnected parts. We descibe the different data sets we used in Section \ref{sec:dataset}, how we clustered the weather data in Section \ref{sec:clust}, and how we predicted the sentiment of each tweet in Section \ref{sec:senti}. Correlating the two entities of this work is described in Section \ref{sec:corr}, and the implementation of the line bundling to indicate the correlation in Section \ref{sec:line}.  In addition to these items we try to implement a predition  for the sentiment for future times which we discuss in Section \ref{sec:pred}. The steps are illustrated in Figure \ref{fig:steps}. 
+
+Tweether in its simplest form takes tweets and assigns a sentiment value which is then correlated to the nearest weather cluster. Each tweet is aligned to the map of Nebraska according to its location. The current hour visualization and the prediction visualization have the same user interface. We embrace the natural link of weather up in the sky to the tweets down on earth to implement our visualization which we will discuss in Section \ref{sec:vis}. After we implement each of the necessary steps we can clearly see how the visualization adopts a layered implementation which highlights the following steps.
 
 \begin{figure}[htb]
  \centering
@@ -207,6 +209,7 @@ Implementing Tweether has multiple steps which are composed of individual and in
 
 
 \subsection{Data Set}
+\label{sec:dataset}
 
 There are two main data groups in this visualization. 
 
@@ -222,6 +225,8 @@ The Twitter data is the live data feed from Twitter users throughout Nebraska. O
 \end{figure}
 
 \subsection{Clustering}
+\label{sec:clust}
+
 The clustering differs depending on if looking at the current hour or the predicted values for the next 72 hours. For the current hour, the k-means clustering algorithm is used. Since we don't need to worry about the future at the current state nothing additional is added to the algorithm. For predicted moods, we use the  dynamic time warping (DTW) algorithm.
 
 The k-means clustering algorithm partitions the matrix of data into five clusters which can be dispersed. In the matrix, the dispersed clusters can create random patterns or create outliers. To remove outliers, they are filtered out creating fewer regions of the same cluster. The filtering process is based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements then this cluster is removed and the remaining data points which belong to a cluster are clustered again. This process is done as long as there exists a cluster which has less than one percent of the overall cluster count. 
@@ -231,6 +236,7 @@ For the forecasted weather, a modified k-means algorithm was used originally. Si
 To smooth any randomness, connectivity is used to determine the percentage of surrounding elements with the same cluster value as the central element. If at least five out of 8 neighbors have the same value then this cluster is kept, otherwise the data point is removed. This method is repeated four times to ensure smooth clusters. The number of times to be repeated was chosen due to it creating the most smooth outcome amongst the majority of 73 hours.
 
 \subsection{Semantic}
+\label{sec:senti}
 
 Each tweet can contain different attributes other than plain sentences. Due to each tweet being limited to 140 characters the majority of users tend to use abbreviations, neologisms (i.e. noob, troll), acronyms hashtags, emoticons, and URL's. Abbreviations, acronyms, and neologisms are taken into account for training our classifier, however, a few items are filtered from certain tweets. The filtering process removes  emoticons, URL's, usernames, and hashtags. In some situations, it is known that hashtags can provide instant insight as to what the users are feeling.[6] However, we feel with most hashtags that we encountered they contained useless text or sentences for tags instead of keywords.
 
@@ -249,6 +255,8 @@ Due to tweets using abbreviations and incomplete sentences, sentiment calculatio
 
 
 \subsection{Correlation}
+\label{sec:corr}
+
 The correlation between each tweet and the cluster above is represented by a one to one mapping. As we see in Figure \ref{fig:clusters}(a), if there is a natural link then the mapping is pure. In situations where there isn't a direct link to any of the weather clusters the nearest cluster is used.
 
 Other than the natural link between the primary cluster and the tweet we explore similarity of connections to other clusters regardless of the sentiment it may correspond to. This correlation is only available for the current hour. For each tweet, we use the top two relations to other clusters which we deem the secondary and tertiary clusters. Using the Pearson product-moment correlation coefficient, we determine the similarity of each tweet cluster to other clusters.(1) With a correlation value closer to one we keep the sentiment expressed in the primary cluster, however in the case of a correlation value closer to negative one we swap the sentiment expressed in the primary cluster. We look for the values closest to one or negative one and according to the sign we assign the proper sentiment value. Figure \ref{fig:clusters}(b and c) show the secondary and tertiary cluster.
@@ -273,6 +281,7 @@ We use the location of the tweet and the temperature at that point to determine 
 \end{figure}
 
 \subsection{Line Bundling}
+\label{sec:line}
 
 We adopt FDEB~\cite{holten2009force} to visualize the graph of correlation. We bundle the related edges with high compatibilities, and iteratively subdivide the edges to generate smooth curves with coherent shapes. This approach can effectively reduce visual clutter in 3D.
 
@@ -282,6 +291,8 @@ Similar to FDEB, we use an iterative simulation to refine the bundling. The simu
 
 
 \subsection{Prediction}
+\label{sec:pred}
+
 Predicting the future is mostly based on facts. We have at our disposal the current mood and the current temperature, all of the previous days tweets and the temperatures for each hour, and the predicted temperature for each hour for the next two days. Using these facts we try to determine what the sentiment at each location which people are tweeting from currently will be for the next two days. 
 
 Determining the mood of the current locations up to 72 hours in the future is a nontrivial task. Our prediction technique is completely based on the current hour and the previous day. We choose not to use data from earlier times since the trends today are definitely not the same a year ago let alone a month ago. In addition to this, we should state that the weather is unpredictable for the state of Nebraska.
@@ -304,6 +315,8 @@ $g_x, g_y, b_x,$ and $b_y$ represent the amount of good and bad tweets in X and 
 
 
 \section{Visualization}
+\label{sec:vis}
+
 The novelty of this work is pictured through the 3-dimensional visualization. The visualization is comprised of multiple layers where there is a natural visual connection between the layers. Many different methods could represent this data correlation however, we have created a novel visualization. The layers are connected via line bundles to dictate how the majority of the Twitter users in Nebraska are feeling.
 
 \subsection{Layers}
@@ -328,7 +341,7 @@ Each cluster is represented by a different color. Clusters which aren't connecte
 
 Once the cluster for each hour was attained we needed two edge points for the data to link up to. These two edge points correspond to positive and negative emotions. We had different ideas on how the points should be picked. At first we were thinking to give half of one cluster to the positive emotion and the other half to negative emotions. This method seemed like a good idea at the beginning however in the visualization the output looked cluttered as seen in Figure \ref{fig:corners}(a). The second method we tried split the cluster in half and used the center points of the two half's. This was also a good idea until we came into situations where the cluster was represented by a very small amount of data points causing the visualization to look awkward. (Figure \ref{fig:corners}) We finally decided on a method where for each cluster the positive tweets would map to top rightmost point in the cluster and the negative tweets would map to the bottom leftmost point. This reduced visual clutter and helped in situations where the cluster size is fairly small. (Figure \ref{fig:corners})
 
-In our visualization, the clusters appear as clouds. Initially, we had the user space and the weather space flipped, however, we believe that the way we present the data is novel and more intuitive. Each cluster is blurred at the boundaries to make the graphical interface cleaner and aesthetically pleasing as seen in Figure \ref{fig:clusters}(b).
+In our visualization, the clusters appear as clouds. Initially, we had the user space and the weather space flipped, however, we believe that the way we present the data is novel and more intuitive. Each cluster is blurred at the boundaries to make the graphical interface cleaner and aesthetically pleasing as seen in Figure \ref{fig:blur}(b).
 
 
 
@@ -389,9 +402,6 @@ As we see in Figure \ref{fig:predict} the accuracy of the three methods we used 
 
 
 \newpage
-
-...\newpage
-
 
 \section{Discussion}
 We used a large data set to determine if there was any noticeable correlation, and we filter the data set to determine if this could provide a better indication of correlation. We saw that most of the tweets were positive in colder and warmer temperatures, however the number of tweets increased as the temperature rose. We observed the number of positive tweets percentage wise was much higher when the temperature rose. Even though our initial aim was to find a distinct answer to the question: Does the weather affect mood?, we were not able to gain concrete results. We were able to find other patterns from our analysis. 
