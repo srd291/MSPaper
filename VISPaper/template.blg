@@ -3,47 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: template.aux
 The style file: abbrv.bst
 Database file #1: template.bib
+Warning--can't use both volume and number fields in holten2009force
+Warning--can't use both volume and number fields in hurter2012graph
 Warning--empty journal in pangthumbs
 Warning--empty year in pangthumbs
-You've used 14 entries,
+Warning--can't use both volume and number fields in telea2010image
+You've used 24 entries,
             2118 wiz_defined-function locations,
-            590 strings with 6359 characters,
-and the built_in function-call counts, 5583 in all, are:
-= -- 542
-> -- 296
-< -- 5
-+ -- 119
-- -- 102
-* -- 418
-:= -- 907
-add.period$ -- 43
-call.type$ -- 14
-change.case$ -- 92
+            642 strings with 7945 characters,
+and the built_in function-call counts, 9920 in all, are:
+= -- 986
+> -- 485
+< -- 13
++ -- 193
+- -- 166
+* -- 735
+:= -- 1566
+add.period$ -- 77
+call.type$ -- 24
+change.case$ -- 153
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 205
-empty$ -- 413
-format.name$ -- 102
-if$ -- 1165
+cite$ -- 29
+duplicate$ -- 376
+empty$ -- 752
+format.name$ -- 166
+if$ -- 2112
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 15
-newline$ -- 72
-num.names$ -- 28
-pop$ -- 102
+int.to.str$ -- 24
+missing$ -- 26
+newline$ -- 122
+num.names$ -- 48
+pop$ -- 169
 preamble$ -- 1
-purify$ -- 79
+purify$ -- 131
 quote$ -- 0
-skip$ -- 147
+skip$ -- 279
 stack$ -- 0
-substring$ -- 348
-swap$ -- 55
-text.length$ -- 5
+substring$ -- 666
+swap$ -- 121
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
-warning$ -- 2
-while$ -- 53
-width$ -- 16
-write$ -- 153
-(There were 2 warnings)
+type$ -- 92
+warning$ -- 5
+while$ -- 95
+width$ -- 26
+write$ -- 269
+(There were 5 warnings)

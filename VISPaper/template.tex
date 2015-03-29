@@ -179,8 +179,10 @@ Clustering of data is a trivial task. However when introducing  temporal and tim
 The mass majority of clustering visualizations use k-means clustering on the basis of their algorithms. \cite{li2014nasty,weber2001visualizing} We choose to follow this pattern as well. The user's dilemma of what clustering information is needed provides insight as to why k-means is widely chosen; primarily due to it being a simple clustering algorithm. \cite{weber2001visualizing}
 
 \subsubsection{Bundling}
+The correlation between various weather and sentiment partitions can be fundamentally represented as a graph. However, graph visualization remains a challenging task. A direct drawing straight lines for all edges can easily incur severe visual clutter, even with some optimization techniques, such as force-directed placement of vertices or clustering of vertices~\cite{KAUFMANN2001}.
 
-\newpage
+To address this issue, Holen~\cite{holten2006hierarchical} proposed a concept of edge bundling that groups the related edges of a hierarchical graph together as a set of smooth curved bundles, and thus can significantly reduce visual cluster. Holen et al.~\cite{holten2009force} extended the original edge bundling method and presented force directed edge bundling (FDEB) for a general graph without hierarchy. Other researchers have also made similar efforts to generalize edge bundling~\cite{cui2008geometry,telea2010image,ersoy2011skeleton,gansner2011multilevel}. Few efforts have been dedicated to create extensions in 3D space. Lambert et al.~\cite{5571244} presented a 3D edge bundling to visualize geographical networks on the Earth surface. B\"{o}ttger et al.~\cite{bottger2014three} presented mean-shift edge bundling to visualize 3D functional connectivity across the cortical regions of brain. Their method combines FDEB and kernel density estimation edge bundling
+(KDEEB)~\cite{hurter2012graph} with an improved numerical stability.
 
 \subsection{Predictions}
 
@@ -272,7 +274,11 @@ We use the location of the tweet and the temperature at that point to determine 
 
 \subsection{Line Bundling}
 
-\newpage
+We adopt FDEB~\cite{holten2009force} to visualize the graph of correlation. We bundle the related edges with high compatibilities, and iteratively subdivide the edges to generate smooth curves with coherent shapes. This approach can effectively reduce visual clutter in 3D.
+
+The original paper of FDEB~\cite{holten2009force} proposed four criteria, angle, scale, position, and visibility, for edge compatibility measures. In our design, as the edges are mostly oriented along the vertical direction between cloud and ground, the variation in angle or scale is relatively marginal compared to a general graph. In addition, as we display the edges in 3D, the visibility of an edge can be changed from different views. Therefore, only position (i.e., distance between midpoints of edges) is considered for computing edge compatibility in our design.
+
+Similar to FDEB, we use an iterative simulation to refine the bundling. The simulation starts with $P_0$ subdivision points for each edge, and then preforms $C$ simulation cycles. During each cycle, a specific number of iteration steps $I$ is conducted to move the subdivision points to reach an equilibrium between forces. The number of iteration steps during the first cycle is $I_0$. After performing a cycle, the number of subdivision points is doubled to smoothen the edges, and the number of iteration steps $I$ is decreased by a factor $R$. We found that a configuration of $P_0=1$, $C=6$, $I_0=50$, and $R=\frac{2}{3}$ leads to appropriate results in our design. 
 
 
 \subsection{Prediction}
