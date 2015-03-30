@@ -38,12 +38,18 @@ The Twitter data set contains the live data feed from Twitter users throughout N
 \subsection{Weather Clustering}
 \label{sec:clust}
 
-We use clustering to extract different weather patterns from the WRF data and identify their geographic coverage. The clustering of weather differs depending on if looking at the current hour or the predicted values for the next 72 hours. For the current hour of weather, we use the k-means clustering algorithm. %Since we don't need to worry about the future at the current state nothing additional is added to the algorithm.
-For the forecasted weather, we use the dynamic time warping (DTW) algorithm~\cite{salvador2007toward}.
+We use clustering to extract different weather patterns from the WRF data and identify their geographic coverage. The clustering of weather differs depending on if looking at the current hour or the predicted values for the next 72 hours. For the current hour of weather, we use the k-means clustering algorithm. For the forecasted weather, we use a modified k-means algorithm.
+%Since we don't need to worry about the future at the current state nothing additional is added to the algorithm.
+%For the forecasted weather, we use the dynamic time warping (DTW) algorithm~\cite{salvador2007toward}.
 
-We use the k-means clustering algorithm to partition the 2D array of each time step of TSK into a set of clusters. Some clusters can be dispersed, resulting in random patterns or outliers. These outliers are removed because we assume that moods are affected mostly by comparably dominated weather patterns, and the outliers are small in space and can be changed dynamically in time. To remove outliers, we use a filtering process based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements, this cluster is removed and the data points which belong to a cluster are clustered again. This process is continued until there is no cluster which has less than one percent of the overall cluster count. %In this study, we choose five clusters that gives us good results.
+
+We use the k-means clustering algorithm to partition the 2D array of each time step of TSK into a set of clusters. Some clusters can be dispersed, resulting in random patterns or outliers. These outliers are removed because we assume that moods are affected mostly by comparably dominated weather patterns, and the outliers are small in space and can be changed dynamically in time. To remove outliers, we use a filtering process based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements, this cluster is removed and the data points which belong to a cluster are clustered again. This process is continued until there is no cluster which has less than one percent of the overall cluster count. For the forecasted weather, we used a modified k-means algorithm to measure the similarity between two successive hours; where we use the difference between two hours for the similarity.
+
+%In this study, we choose five clusters that gives us good results.
 %
-For the forecasted weather, we used DTW to measure the similarity between two successive hours, because k-means is not very robust towards outliers due to adding a square weight on the value. 
+%For the forecasted weather, we used DTW to measure the similarity between two successive hours.
+
+%, because k-means is not very robust towards outliers due to adding a square weight on the value. 
 
 To smooth any randomness in the cluster values of the 2D array, we use a low-pass filter where the cluster value of an element is determined by the values of surrounding elements.
 %connectivity is used to determine the percentage of surrounding elements with the same cluster value as the central element. 
