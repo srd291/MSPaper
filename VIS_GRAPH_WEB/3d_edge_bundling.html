@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<script id="cube-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void
+main()
+{    
+     gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="cube-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+void
+main()
+{
+	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+}
+</script>
+
+
+<script id="sphere-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void
+main()
+{    
+     gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="sphere-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+void
+main()
+{
+	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+}
+</script>
+    
+<script id="poly-vertex-shader" type="x-shader/x-vertex">
+precision mediump int;
+precision mediump float;
+
+attribute vec4 pPosition;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void main()
+{
+    // Calculate vertex position in screen space
+    gl_Position = projectionMatrix * modelViewMatrix * pPosition;
+}
+</script>
+    
+<script id="poly-fragment-shader" type="x-shader/x-fragment">
+precision mediump int;
+precision mediump float;
+
+void main()
+{
+    // Set fragment color from texture
+    gl_FragColor = vec4(1.0, 0.0, 0.0, 0.5);
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="3d_edge_bundling.js"></script>
+</head>
+
+<body>
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>

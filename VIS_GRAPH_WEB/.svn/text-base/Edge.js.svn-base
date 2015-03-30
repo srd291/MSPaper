@@ -1,0 +1,229 @@
+// ============================================================================
+// Edge manager - This class store all the edges in the same array, making no difference
+//                of cluster, or classification
+// =========================is===================================================
+var EdgeManager = function() {
+	this.edges = [];  // An array of world coordinates. {(x0,y0,z0,w0); (x1,y1,w1,w1);...}
+					  // Each four consecutive inputs represent the same edge
+    this.edgesColor = [];
+};
+
+EdgeManager.prototype.createEdges = function(weatherClusterManager, socialClusterManager) {
+	this.edges = [];
+
+	for(var a = 0; a < socialClusterManager.socialData.length; ++a) {
+//    for(var a = 0; a < 1; ++a) {
+		//  Get info about the current social data point
+		var socialPoint = socialClusterManager.socialData[a].position;
+		var weatherGroup = socialClusterManager.socialData[a].mainWeathergroup;
+		
+        var dummyPoint; //Added by Jieting
+        var alpha;      //Added by Jieting
+        var length;     //Added by Jieting
+        var max;        //Added by Jieting
+        var min;        //Added by Jieting
+        var vmax;       //Added by Jieting
+        var vmin;       //Added by Jieting
+        
+		//  Look for the matching weather cluster - main weather cluster
+		var b = 0;
+		while(b < weatherClusterManager.clusters.length) {
+			if(weatherClusterManager.clusters[b].cluster === weatherGroup)
+				break;
+			++b;
+		}
+
+		var weatherPoint;
+		if(socialClusterManager.socialData[a].classification === 1) {
+
+			weatherPoint = weatherClusterManager.clusters[b].positivePoint;
+		}
+		else {
+			weatherPoint = weatherClusterManager.clusters[b].negativePoint;
+		}
+		
+		this.edges.push(socialPoint);
+		this.edges.push(weatherPoint);
+        
+        max = 3.64;     //Added by Jieting
+//        max = 5.0;    //Added by Jieting
+        min = 1.0;      //Added by Jieting
+        vmax = 1.0;     //Added by Jieting
+        vmin = 0.4;     //Added by Jieting
+        length = CalcDistance(socialPoint, weatherPoint); //Added by Jieting
+
+        if (length > max) { //Added by Jieting
+            length = max;   //Added by Jieting
+        }                   //Added by Jieting
+        
+        alpha = (length - min) * (-vmax + vmin) / (max - min) + vmin;       //Added by Jieting
+//        var positive = vec4(0.31, 1.0, 0.0, alpha);                       //Added by Jieting
+//        var negative = vec4(0.8, 0.0, 0.0, alpha);                        //Added by Jieting
+        var positive = vec4(0.0, 0.392, 0.698, alpha);   
+        var negative = vec4(0.698, 0.423, 0.0, alpha);                      //Added by Jieting
+        var dummyColor = vec4(0.0, 0.0, 0.0, 0.0);                          //Added by Jieting
+        if(socialClusterManager.socialData[a].classification === 1) {   
+            this.edgesColor.push(positive);                                 //Added by Jieting
+//            this.edgesColor.push(dummyColor);                             //Added by Jieting
+		}                                                               
+		else {                                                         
+            this.edgesColor.push(negative);                                 //Added by Jieting
+//            this.edgesColor.push(dummyColor);                             //Added by Jieting
+		}                                                                   
+	}
+//    console.log(this.edges);
+};
+
+// ==============================================================================
+// Bundle Edge Manager - The bundledEdeges is an array of arrays of the edges 
+//                      taking into acount both the social cluster and the classific
+//                     - The bundledEdgesNoClass doesn't take into acount the
+//                      difference into the classification, and mput all edges from
+//                      the same social cluster into a single array
+// =========================is===================================================
+var BundleEdgeManager = function() {
+	this.bundledEdges = [];
+	this.bundledEdgesNoClass = [];
+    this.bundledEdgesColor = [];
+};
+
+BundleEdgeManager.prototype.createEdgeBundle = function(weatherClusterManager, key, clusteredTweets, classification) {
+	var edges = [];
+
+	var socialDataPoints = [];
+	if(classification === 1) {
+		socialDataPoints = clusteredTweets[key].positivePoints;
+	}
+	else {
+		socialDataPoints = clusteredTweets[key].negativePoints;
+	}
+
+	//  If there is no edges in the wanted classification in this cluster, just leave
+	if(socialDataPoints.length === 0) return;
+
+	var weatherGroup = socialDataPoints[0].mainWeathergroup;
+		
+	//  Look for the matching weather cluster - main weather cluster
+	var b = 0;
+	while(b < weatherClusterManager.clusters.length) {
+		if(weatherClusterManager.clusters[b].cluster === weatherGroup)
+			break;
+		++b;
+	}
+
+	var weatherPoint;
+	if(classification === 1) {
+
+		weatherPoint = weatherClusterManager.clusters[b].positivePoint;
+	}
+	else {
+		weatherPoint = weatherClusterManager.clusters[b].negativePoint;
+	}
+	
+	for(var a = 0; a < socialDataPoints.length; ++a) {
+		edges.push(socialDataPoints[a].position);
+		edges.push(weatherPoint);
+	}
+
+	this.bundledEdges.push(edges);
+};
+
+BundleEdgeManager.prototype.createEdges = function(weatherClusterManager, socialDataManager) {
+	var clusteredTweets = socialDataManager.clusterTweetData();
+
+	for(var k in clusteredTweets) {
+		//  Create the edge bundle at the kth region of the grid with respect to the bad classification
+		this.createEdgeBundle(weatherClusterManager, k, clusteredTweets, 0);
+		//  Now create the bundle with respect to the good classification
+		this.createEdgeBundle(weatherClusterManager, k, clusteredTweets, 1);
+	}
+};
+
+function CalcDistance(p1, p2)
+{
+    var x = p1[0] - p2[0];
+    var y = p1[1] - p2[1];
+    var z = p1[2] - p2[2];
+    return Math.sqrt(x * x + y * y + z * z);
+}
+
+BundleEdgeManager.prototype.createEdgeBundleNoClassification = function(weatherClusterManager, key, clusteredTweets) {
+	var edges = [];
+    var dummyEdges = [];
+    
+	var socialDataPoints = [];
+	socialDataPoints = clusteredTweets[key].points;
+	
+	//  If there is no edges, just leave
+	if(socialDataPoints.length === 0) return;
+
+	for(var a = 0; a < socialDataPoints.length; ++a) {
+		var weatherGroup = socialDataPoints[a].mainWeathergroup;
+		//  Look for the matching weather cluster - main weather cluster
+		var b = 0;
+		while(b < weatherClusterManager.clusters.length) {
+			if(weatherClusterManager.clusters[b].cluster === weatherGroup)
+				break;
+			++b;
+		}		
+		var classification = socialDataPoints[a].classification;	
+		var weatherPoint;
+        var dummyPoint; //Added by Jieting
+        var alpha;      //Added by Jieting
+        var length;     //Added by Jieting
+        var max;        //Added by Jieting
+        var min;        //Added by Jieting
+        var vmax;       //Added by Jieting
+        var vmin;       //Added by Jieting
+		if(classification === 1) { 
+			weatherPoint = weatherClusterManager.clusters[b].positivePoint; //Added by Jieting
+            dummyPoint = weatherClusterManager.clusters[b].negativePoint;   //Added by Jieting
+		} 
+		else {
+			weatherPoint = weatherClusterManager.clusters[b].negativePoint; //Added by Jieting
+            dummyPoint = weatherClusterManager.clusters[b].positivePoint;   //Added by Jieting
+		} 
+        
+        // sentiment edge
+		edges.push(socialDataPoints[a].position);
+		edges.push(weatherPoint);
+        edges.push(socialDataPoints[a].position); //Added by Jieting
+        edges.push(dummyPoint);                 //Added by Jieting
+        //dummy edge
+//      dummyEdges.push(socialDataPoints[a].position);
+//		dummyEdges.push(dummyPoint);
+        
+        max = 3.64; //Added by Jieting
+//        max = 5.0; //Added by Jieting
+        min = 1.0; //Added by Jieting
+        vmax = 1.0; //Added by Jieting
+        vmin = 0.2; //Added by Jieting
+        length = CalcDistance(socialDataPoints[a].position, weatherPoint);  //Added by Jieting
+
+        if (length > max) { //Added by Jieting
+            length = max;   //Added by Jieting
+        }                   //Added by Jieting
+        
+        alpha = (length - min) * (-vmax + vmin) / (max - min) + vmin;       //Added by Jieting
+        var positive = vec4(0.31, 1.0, 0.0, alpha);                         //Added by Jieting
+        var negative = vec4(0.8, 0.0, 0.0, alpha);                          //Added by Jieting
+        var dummyColor = vec4(0.0, 0.0, 0.0, 0.0);                          //Added by Jieting
+        if(classification === 1) { 
+            this.bundledEdgesColor.push(positive);                          //Added by Jieting
+            this.bundledEdgesColor.push(dummyColor);                        //Added by Jieting
+		}                                               
+		else {                                           
+            this.bundledEdgesColor.push(negative);                          //Added by Jieting
+            this.bundledEdgesColor.push(dummyColor);                        //Added by Jieting
+		}                                             
+	}                                                 
+	this.bundledEdgesNoClass.push(edges);
+//    this.bundledEdgesNoClass.push(dummyEdges);
+};
+
+BundleEdgeManager.prototype.createEdgesNoClassification = function(weatherClusterManager, socialDataManager) {
+	var clusteredTweets = socialDataManager.clusterTweetDataNoClassification();
+	for(var k in clusteredTweets) {
+		this.createEdgeBundleNoClassification(weatherClusterManager, k, clusteredTweets);
+	}
+};
