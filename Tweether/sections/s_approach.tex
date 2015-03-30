@@ -1,19 +1,20 @@
 \section{Approach}
 
-Implementing Tweether has multiple steps which are composed of individual and interconnected components. We use both the weather data and the Twitter data in our study (Section~\ref{sec:dataset}). Based on the clustering result of the weather data (Section~\ref{sec:clust}) and the sentiment prediction of each tweet (Section~\ref{sec:senti}), we correlate these two entities (Section~\ref{sec:corr}). We represent the derived correlation as a graph, and use line bundling for visualization (Section \ref{sec:line}). In addition, we also predict the sentiment for future times (Section~\ref{sec:pred}). The steps are illustrated in Figure \ref{fig:steps}.
+Implementing Tweether has multiple steps which are composed of individual and interconnected components. We use both the weather data and the Twitter data in our study (Section~\ref{sec:dataset}). Based on the clustering result of the weather data (Section~\ref{sec:clust}) and the sentiment classification of each tweet (Section~\ref{sec:senti}), we correlate these two entities (Section~\ref{sec:corr}). We also predict the sentiments for future times (Section~\ref{sec:pred}).
 
+Tweether in its simplest form takes tweets and assigns a sentiment value which is then correlated to the nearest weather cluster. Each tweet is aligned to the map according to its geographic location. The current hour visualization and the prediction visualization have the same user interface. We represent the derived correlation as a graph, and embrace the natural link of weather up in the sky to the tweets down on earth to implement our visualization (Section~\ref{sec:vis}). After we implement each of the necessary steps we can clearly see how the visualization adopts a layered design which effectively highlights the correlation of weather and emotion in space-time. The major steps of Tweether are illustrated in Figure~\ref{fig:steps}.
 
-%We describe the different data sets we used in Section~\ref{sec:dataset}, how we clustered the weather data in Section \ref{sec:clust}, and how we predicted the sentiment of each tweet in Section \ref{sec:senti}. Correlating the two entities of this work is described in Section \ref{sec:corr}, and the implementation of the line bundling to indicate the correlation in Section \ref{sec:line}.  In addition to these items, we try to implement a prediction  for the sentiment for future times which we discuss in Section \ref{sec:pred}. The steps are illustrated in Figure \ref{fig:steps}.
-
-Tweether in its simplest form takes tweets and assigns a sentiment value which is then correlated to the nearest weather cluster. Each tweet is aligned to the map according to its geographic location. The current hour visualization and the prediction visualization have the same user interface. We embrace the natural link of weather up in the sky to the tweets down on earth to implement our visualization (Section~\ref{sec:vis}). After we implement each of the necessary steps we can clearly see how the visualization adopts a layered implementation which effectively highlights the correlation of weather and emotion in space-time.
 %----------------------------------------------------------
 \begin{figure}[t]
  \centering
  \includegraphics[scale=0.1]{steps}
- \caption{The major steps of Tweether}
+ \caption{The major steps of Tweether.}
  \label{fig:steps}
 \end{figure}
 %----------------------------------------------------------
+
+
+%We describe the different data sets we used in Section~\ref{sec:dataset}, how we clustered the weather data in Section \ref{sec:clust}, and how we predicted the sentiment of each tweet in Section \ref{sec:senti}. Correlating the two entities of this work is described in Section \ref{sec:corr}, and the implementation of the line bundling to indicate the correlation in Section \ref{sec:line}.  In addition to these items, we try to implement a prediction  for the sentiment for future times which we discuss in Section \ref{sec:pred}. The steps are illustrated in Figure \ref{fig:steps}.
 
 \subsection{Data Sets}
 \label{sec:dataset}
@@ -43,10 +44,10 @@ For the forecasted weather, we use the dynamic time warping (DTW) algorithm~\cit
 
 We use the k-means clustering algorithm to partition the 2D array of each time step of TSK into a set of clusters. Some clusters can be dispersed, resulting in random patterns or outliers. These outliers are removed because we assume that moods are affected mostly by comparably dominated weather patterns, and the outliers are small in space and can be changed dynamically in time. To remove outliers, we use a filtering process based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements, this cluster is removed and the data points which belong to a cluster are clustered again. This process is continued until there is no cluster which has less than one percent of the overall cluster count. %In this study, we choose five clusters that gives us good results.
 %
-For the forecasted weather, we used DTW to measure the similarity between two successive hours, because k-means is not very robust towards outliers due to adding a square weight on the value. 
+For the forecasted weather, we used DTW to measure the similarity between two successive hours, because k-means is not very robust towards outliers due to adding a square weight on the value.
 
 To smooth any randomness in the cluster values of the 2D array, we use a low-pass filter where the cluster value of an element is determined by the values of surrounding elements.
-%connectivity is used to determine the percentage of surrounding elements with the same cluster value as the central element. 
+%connectivity is used to determine the percentage of surrounding elements with the same cluster value as the central element.
 If at least 5 out of 8 neighbors have the same value, the cluster values of the element is kept; otherwise, the value is removed. We found that repeating this operation 4 times to ensure smooth clusters can give use sufficient smooth outcome amongst the majority of 72 hours.
 %The number of times to be repeated is chosen due to it creating the most smooth outcome amongst the majority of 72 hours. Figure~\ref{fig:clustering} (d) shows the result of forecasted weather.
 Figure~\ref{fig:clustering} (a) shows the distribution of TSK at a certain time step. A directly use of k-means can generate many dispersed small regions, as shown in Figure~\ref{fig:clustering} (b). Our method can clearly extract the dominated TSK patterns, as shown in Figure~\ref{fig:clustering} (c). Figure~\ref{fig:clustering} (d) shows the result of forecasted weather.
@@ -105,7 +106,7 @@ $\begin{array}{c@{\hspace{0.01\linewidth}}c}
 \end{array}$
 \end{center}
 \vspace{-.1in}
-\caption{The sentiment classification results of two time steps }
+\caption{The sentiment classification results of two time steps.}
 \label{fig:sentiment}
 \end{figure}
 %------------------------------------------------
@@ -118,31 +119,20 @@ We investigate the correlation between the patterns generated from the weather c
 
 %The correlation between each tweet and the cluster above is represented by a one to one mapping. As we see in Figure \ref{fig:clusters}(a), if there is a natural link then the mapping is pure. In situations where there isn't a direct link to any of the weather clusters the nearest cluster is used.
 
-Other than the natural link between the primary cluster and the tweet, we explore the similarity of connections to other clusters. % regardless of the sentiment it may correspond to.
-This is because the sentiment of a tweet can be also affected by its vicinal weather clusters. Therefore, disregarding the primary cluster, we quantify the correlation of the tweet to the other clusters to indicate what other clusters the tweet could map to. In particular, we use the location of a tweet and the TSK value at the location to determine the correlation value to the points of other clusters using the Pearson product-moment correlation coefficient: we determine the similarity of each tweet to the weather clusters:
- %------------------------------------------------
+Other than the natural link between the primary cluster and a tweet, we explore the similarity of connections of the tweet to other clusters. % regardless of the sentiment it may correspond to.
+This is because the sentiment of the tweet can be also affected by its vicinal weather clusters. Therefore, disregarding the primary cluster, we quantify the correlation of the tweet to the other clusters to indicate what other clusters the tweet could map to. In particular, we use the location of a tweet and the TSK value at the location to determine the correlation value to the points of a weather cluster using the Pearson product-moment correlation coefficient:
+%------------------------------------------------
 \begin{equation}
 \label{eq:pearson}
 \rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}},
 \end{equation}
 %------------------------------------------------
-where $cov$ is the covariance, and $\sigma_{X}$ ($\sigma_{Y}$) is the standard deviation of $X$ ($Y$). \pin{Here, $X$ and $Y$ are ...} The correlation value of $\rho_{X,Y}$ ranges from -1 to 1. If the value is 1 (-1), it indicates a perfect positive (negative) linear relationship between $X$ and $Y$. If the value is 0, it means that there is no linear relationship between $X$ and $Y$.
+where $X$ is the location and the TSK value of the tweet, $Y$ is the locations and the TSK vlaues of all points of a weather cluster, $cov$ is the covariance, and $\sigma_{X}$ ($\sigma_{Y}$) is the standard deviation of $X$ ($Y$). The correlation value of $\rho_{X,Y}$ ranges from -1 to 1. If the value is 1 (-1), it indicates a perfect positive (negative) linear relationship between $X$ and $Y$. If the value is 0, it means that there is no linear relationship between $X$ and $Y$.
 
+This correlation is computed for the current hour. For each tweet, we use the top two absolute values of correlation to other clusters which we deem the \emph{secondary} and \emph{tertiary} clusters, respectively. In most cases, the secondary and tertiary mapping have the same sentiment since the best fit is a cluster close by with a similar TSK value. Figure~\ref{fig:correlation} shows the primary, secondary and tertiary clusters of $T_1$ and $T_2$ respectively.
 
-
-
-
-In most cases, the secondary and tertiary mapping have the same sentiment since the best fit is a cluster close by with a similar temperature.
-
-
-
-
-
-This correlation is only available for the current hour. For each tweet, we use the top two relations to other clusters which we deem the \emph{secondary} and \emph{tertiary} clusters, respectively. 
 %\marginnote{\pin{why?}}\pin{With a correlation value closer to 1 we keep the sentiment expressed in the primary cluster. However, in the case of a correlation value closer to -1, we swap the sentiment expressed in the primary cluster. We look for the values closest to 1 or -1, and assign the proper sentiment value according to the sign.}
 
-
-Figure~\ref{fig:correlation} shows the primary, secondary and tertiary clusters of $T_1$ and $T_2$ respectively.
 
 %------------------------------------------------
 \begin{figure}[t]
@@ -166,16 +156,6 @@ Figure~\ref{fig:correlation} shows the primary, secondary and tertiary clusters 
 %\end{figure}
 %%------------------------------------------------
 
-%\subsection{Line Bundling}
-%\label{sec:line}
-%
-%We adopt FDEB~\cite{holten2009force} to visualize the graph of correlation. We bundle the related edges with high compatibilities, and iteratively subdivide the edges to generate smooth curves with coherent shapes. This approach can effectively reduce visual clutter in 3D.
-%
-%The original paper of FDEB~\cite{holten2009force} proposed four criteria, angle, scale, position, and visibility, for edge compatibility measures. In our design, as the edges are mostly oriented along the vertical direction between cloud and ground, the variation in angle or scale is relatively marginal compared to a general graph. In addition, as we display the edges in 3D, the visibility of an edge can be changed from different views. Therefore, only position (i.e., distance between midpoints of edges) is considered for computing edge compatibility in our design.
-%
-%Similar to FDEB, we use an iterative simulation to refine the bundling. The simulation starts with $P_0$ subdivision points for each edge, and then performs $C$ simulation cycles. During each cycle, a specific number of iteration steps $I$ is conducted to move the subdivision points to reach an equilibrium between forces. The number of iteration steps during the first cycle is $I_0$. After performing a cycle, the number of subdivision points is doubled to smoothen the edges, and the number of iteration steps $I$ is decreased by a factor $R$. We found that a configuration of $P_0=1$, $C=6$, $I_0=50$, and $R=\frac{2}{3}$ leads to appropriate results in our design.
-
-
 \subsection{Prediction}
 \label{sec:pred}
 
@@ -184,21 +164,179 @@ Predicting the future is mostly based on facts. We have at our disposal the curr
 Determining the mood of the current locations up to 72 hours in the future is a non-trivial task. Our prediction technique is based on the current hour and the previous day. We choose not to use data from earlier times because the trends today are definitely not the same a year ago, let alone a month ago. In addition to this, we should state that the long-term weather is relatively unpredictable for the state of Nebraska.
 
 %We start with the most rudimentary implementation, by solely comparing which number is closer by simply comparing the difference.
-We start with a simple strategy by comparing the temperature difference. If the current temperature is closer to the predicted temperature, we use the sentiment for the current hour to show the prediction. If the sentiment of the hour we are trying to pick has a closer temperature to the same hour of the previous day, we use the sentiment from the previous day.
+We start with a simple strategy by comparing the TSK difference. If the current temperature is closer to the predicted temperature, we use the sentiment for the current hour to show the prediction. If the sentiment of the hour we are trying to pick has a closer temperature to the same hour of the previous day, we use the sentiment from the previous day.
 
 %Seeing that the previously stated implementation was very crude, we tried a different method.
-\pin{However, this simple strategy cannot...}.
-Depending on the hour we are trying to predict, we state that if the current hour is at most five hours ago we will place a higher weight on using the current hours values, however when going past five hours we place more weight on the previous days values, where the further we are from the current hour the less weight it plays. Using this method we take the sentiment based on the percentage of the weight.
+However, this simple strategy does not consider the time difference. Alternatively, we can state that if the current hour is closer to the predicted hour we will place a higher weight on using the current hours values; however, when the current hour goes further from the predicted hour, we can place more weight on the previous day value. %That is the further we are from the current hour the less weight it plays.
+Using this method we take the sentiment based on the percentage of the weight in terms of time.
 
-\pin{The final method we use is a combination of above methods. We first determine the closest temperature value to the hour we are trying to predict the sentiment. Then, based on the difference, we determine the weight the two different sentiment sets place \eqref{eq:w}. As we see in \eqref{eq:p} X and Y represent the current temperature and the previous day's temperature respectively, and Z represents the temperature of the hour that we are trying to predict. The number of good and bad sentiment lines is calculated in \eqref{eq:gb}, where $G$ and $B$ represent the number good and bad tweets predicted by using the good and bad tweets of X and Y. The details regarding how well the different methods performed will be seen later on in the case studies.}
+%The final method we use is a combination of above methods. We first determine the closest temperature value to the hour we are trying to predict the sentiment. Then, based on the difference, we determine the weight the two different sentiment sets place \eqref{eq:w}. As we see in \eqref{eq:p} X and Y represent the current temperature and the previous day's temperature respectively, and Z represents the temperature of the hour that we are trying to predict. The number of good and bad sentiment lines is calculated in \eqref{eq:gb}, where $G$ and $B$ represent the number good and bad tweets predicted by using the good and bad tweets of X and Y. The details regarding how well the different methods performed will be seen later on in the case studies.
 
-$p_1$ and $p_2$ represent the difference between the temperatures
-\begin{equation} \label{eq:p} p_{1}=\left | Z-X \right |	\qquad p_{2}=\left | Z-Y \right |	 \end{equation}
+%------------------------------------------------
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{predict}
+\end{center}
+\vspace{-.1in}
+\caption{The prediction model.}
+\label{fig:predict-model}
+\end{figure}
+%------------------------------------------------
 
-$w_1$ and $w_2$ represent weight of the temperatures
-\begin{equation} \label{eq:w} w_{1}=\frac{p_{2}}{p_{1}+p_{2}} 	\qquad w_{2}=\frac{p_{1}}{p_{1}+p_{2}}   \end{equation}
+%------------------------------------------------
+\begin{figure*}[t]
+\begin{center}
+$\begin{array}{c@{\hspace{0.01\linewidth}}c@{\hspace{0.01\linewidth}}c}
+\includegraphics[width=0.2\linewidth]{sample} &
+\includegraphics[width=0.2\linewidth]{sample} &
+\includegraphics[width=0.2\linewidth]{sample}
+\\
+\mbox{\small{(a)}} & \mbox{\small{(b)}} & \mbox{\small{(c)}}
+\end{array}$
+\end{center}
+\vspace{-.1in}
+\caption{Determining the best positions for indicating negative and positive tweets in the cloud repressions of clusters.}
+\label{fig:corners}
+\end{figure*}
+%------------------------------------------------
 
-$g_x, g_y, b_x,$ and $b_y$ represent the amount of good and bad tweets in X and Y
-\begin{equation} \label{eq:gb}  G = g_{x}w_{1} + g_{y}w_{2}	\qquad B = b_{x}w_{1} + b_{y}w_{2}	 \end{equation}
+The final method we use is a combination of above methods. As shown in Figure~\ref{fig:predict-model}, we want to predict the sentiments at a future hour $t$, and we have the following information:
+%
+%----------------------------------------------------------
+\begin{itemize}
+\vspace{-.1in}
+\setlength{\topsep}{-0.1in}
+\setlength{\itemsep}{-0.05in}
+\item $t'$ is the current hour;
+\item $t''$ is the same hour as the predicted hour on the previous day, i.e., $t'' = t - 24$;
+\item $temp_t$, $temp_{t'}$ and $temp_{t''}$ are the TSK values $t$, $t'$, and $t''$, respectively;
+\item $g_{t'}$ ($g_{t''}$) is the total number of tweets with positive emotions at $t'$ ($t''$) correlated to the clusters of $temp_{t'}$ ($temp_{t''}$);
+\item $b_{t'}$ ($b_{t''}$) is the total number of tweets with negative emotions at $t'$ ($t''$) correlated to the clusters of $temp_{t'}$ ($temp_{t''}$).
+\end{itemize}
+\vspace{-0.05in}
+%----------------------------------------------------------
+%
+Based on these information, we first compute the differences between the TSK values:
+%
+%----------------------------------------------------------
+\begin{equation} 
+\label{eq:p} 
+p_{t'}=\left | temp_t - temp_{t'} \right |;	\qquad p_{t''}=\left | temp_t - temp_{t''} \right |	 
+\end{equation}
+%----------------------------------------------------------
+%
+According to the difference values, $p_{t'}$ and $p_{t''}$, we determine the weights of the two sentiment sets:
+%
+%----------------------------------------------------------
+\begin{equation} 
+\label{eq:w} 
+w_{t'}=\frac{p_{t''}}{p_{t'} + p_{t''}}; 	\qquad w_{t''}=\frac{p_{t'}}{p_{t'} + p_{t''}}   
+\end{equation}
+%----------------------------------------------------------
+%
+Finally, we estimate the amount of tweets with positive and negative emotions, $g_t$ and $b_t$, at $t$ with respect to $temp_t$ as:
+%
+%----------------------------------------------------------
+\begin{equation} 
+\label{eq:gb}  
+g_t = g_{t'}w_{t'} + g_{t''}w_{t''};	\qquad b_t = b_{t'}w_{t'} + b_{t''}w_{t''}	 
+\end{equation}
+%----------------------------------------------------------
+%
+The method accounts directly for both the time and the temperature. We will demonstrate the details regarding how well the different methods in our case studies.
+ 
+%We first determine the closest temperature value to the hour we are trying to predict the sentiment. Then, based on the difference, we determine the weight the two different sentiment sets place \eqref{eq:w}. As we see in \eqref{eq:p} X and Y represent the current temperature and the previous day's temperature respectively, and Z represents the temperature of the hour that we are trying to predict. The number of good and bad sentiment lines is calculated in \eqref{eq:gb}, where $G$ and $B$ represent the number good and bad tweets predicted by using the good and bad tweets of X and Y. The details regarding how well the different methods performed will be seen later on in the case studies.
+%
+%$p_1$ and $p_2$ represent the difference between the temperatures
+%\begin{equation} \label{eq:p} p_{1}=\left | Z-X \right |	\qquad p_{2}=\left | Z-Y \right |	 \end{equation}
+%
+%$w_1$ and $w_2$ represent weight of the temperatures
+%\begin{equation} \label{eq:w} w_{1}=\frac{p_{2}}{p_{1}+p_{2}} 	\qquad w_{2}=\frac{p_{1}}{p_{1}+p_{2}}   \end{equation}
+%
+%$g_x, g_y, b_x,$ and $b_y$ represent the amount of good and bad tweets in X and Y
+%\begin{equation} \label{eq:gb}  G = g_{x}w_{1} + g_{y}w_{2}	\qquad B = b_{x}w_{1} + b_{y}w_{2}	 \end{equation}
 
 
+
+
+\subsection{Visualization}
+\label{sec:vis}
+
+We design a novel 3D visualization to picture the analytics of weather clustering, sentiment classification, and the corresponding correlation and prediction. The visualization is comprised of multiple layers, and there is a natural visual connection between the layers such that the weather above affects the people below.
+%Many different methods could represent this data correlation however, we have created a novel visualization where the weather above affects the people below. 
+The layers are connected via line bundles to dictate how the majority of the Twitter users in Nebraska are feeling. We believe that the way we present the data is novel and more intuitive.
+
+\subsubsection{Layers}
+
+The visualization is represented by three main layers. The base layer contains the map of Nebraska and neighboring states. We have chosen to show the counties in Nebraska to gain insight on the population distribution in the state, and choose to keep the other states plain to indicate emphasis of correlation to Nebraska. On the map of Nebraska, there are circles indicating the area that Twitter users are posting from. The radius of a circle corresponds to the amount of people posting tweets in the vicinity. Using the WRF data set for the longitude and latitude values for the map, we obtained the values at intermediate locations via interpolation. We use the longitude and latitude location of each tweet to place it on the map.
+%For each tweet location, the Euclidean distance is calculated to get the nearest longitude and latitude location.
+
+The topmost layer shows the weather clusters by lifting each cluster vertically from its geographic region on the map. The middle layer contains the edges which starts from the Twitter user location and ends at the weather cluster they correspond to above depending on the sentiments. 
+
+\subsubsection{Cloud Representation}
+
+In our visualization, the clusters appear as clouds. Each cluster is blurred at the boundaries to make the graphical interface cleaner and aesthetically pleasing. The color of each weather is mapped from indigo to red according to TSK. Clusters which are not connected of the same color indicate the same conditions (i.e., similar temperature) as other locations of the state. %as seen in Figure \ref{fig:blur}.
+
+Because each cluster can be possibly correlated to the tweets with positive and negative emotions, we need to locate two types of edge points on the cluster for the tweets to link up to. We explore three designs on how the points should be picked. First, we assign half of one cluster to the positive emotions and the other half to the negative emotions. This visualization can easily generate a cluttered output, as shown in Figure~\ref{fig:corners} (a). Second, we split a cluster in half and use the center points of the two halves. This method is effective until we come into situations where the cluster is represented by a very small amount of data points, causing a clutter visualization again, as shown in Figure~\ref{fig:corners} (b). Finally, we map the tweets with positive emotions to the top rightmost point of a cluster, and map the tweetws with negative emotions to the bottom leftmost point of the cluster. This method can significantly reduce visual clutter and help in situations where the cluster size is fairly small, as shown in Figure~\ref{fig:corners} (c). 
+%Initially, we had the Twitter user space and the weather space flipped. However, we believe that the way we present the data is novel and more intuitive.
+
+
+%\begin{figure}[t]
+%  \centering
+%  \subfigure[Before blurring]{\includegraphics[scale=0.09]{blurBefore}}\quad
+%  \subfigure[After blurring]{\includegraphics[scale=0.09]{blurAfter}}
+%\caption{Clustering of the weather. In this hour we see five different clusters. The blue cluster is seen in three different locations.}
+%\label{fig:blur}
+%\end{figure}
+
+%\begin{figure*}[htp]
+%  \centering
+%  \subfigure[Half good half bad]{\includegraphics[scale=1.5]{sample}}\quad
+%  \subfigure[Half good half bad centers]{\includegraphics[scale=1.5]{sample}}\quad
+%  \subfigure[Corners]{\includegraphics[scale=1.5]{sample}}
+%\caption{Determining the best position for indicating negative and positive tweets in the cloud clusters.}
+%\label{fig:corners}
+%\end{figure*}
+
+
+\subsubsection{Edge Bundling}
+\label{sec:line}
+
+%------------------------------------------------
+\begin{figure}[t]
+\begin{center}
+$\begin{array}{c@{\hspace{0.01\linewidth}}c}
+\includegraphics[width=0.3\linewidth]{sample} &
+\includegraphics[width=0.3\linewidth]{sample}
+\\
+\mbox{\small{(a)}} & \mbox{\small{(b)}}
+\end{array}$
+\end{center}
+\vspace{-.1in}
+\caption{(a) A direct visualization of the correlation graph. (b) The edge bundling result.}
+\label{fig:compareline}
+\end{figure}
+%------------------------------------------------
+
+Our design naturally forms a graph to represent the correlation between weather and tweets. However, visual clutter can easily occur if we directly display each edge as a straight line, as shown in Figure~\ref{fig:compareline} (a). 
+%
+To address this issue, we adopt FDEB~\cite{holten2009force} to visualize the graph of correlation. We bundle the related edges with high compatibilities, and iteratively subdivide the edges to generate smooth curves with coherent shapes. This method can effectively reduce visual clutter in 3D.
+
+The original paper of FDEB~\cite{holten2009force} proposed four criteria, angle, scale, position, and visibility, for edge compatibility measures. In our design, as the edges are mostly oriented along the vertical direction between cloud and ground, the variation in angle or scale is relatively marginal compared to a general graph. In addition, as we display the edges in 3D, the visibility of an edge can be changed from different views. Therefore, only position (i.e., distance between midpoints of edges) is considered for computing edge compatibility in our design.
+
+Similar to FDEB, we use an iterative simulation to refine the bundling. The simulation starts with $P_0$ subdivision points for each edge, and then performs $C$ simulation cycles. During each cycle, a specific number of iteration steps $I$ is conducted to move the subdivision points to reach an equilibrium between forces. The number of iteration steps during the first cycle is $I_0$. After performing a cycle, the number of subdivision points is doubled to smoothen the edges, and the number of iteration steps $I$ is decreased by a factor $R$. We found that a configuration of $P_0=1$, $C=6$, $I_0=50$, and $R=\frac{2}{3}$ leads to appropriate results in our design. Figure~\ref{fig:compareline} (b) shows the edge bundling result of the same graph as in (a).  
+
+Each bundle is composed of multiple lines where each line represents one tweet. Every bundle corresponds to a positive or negative sentiment. The sentiment is represented in two ways. First, from the weather cluster perspective, we indicate the sentiment according to which corner of a cluster the bundle is linked to. In this way, we can easily examine the sentiments affected by a certain cluster, as shown in the highlighted box A in Figure~\ref{fig:linedetail}. Second, from the tweet perspective, we associate the positive sentiments to the green bundles and the negative sentiments to the red bundles. In this way, we can intuitively convey the sentiments distribution among the tweets, as shown in the highlighted box B in Figure~\ref{fig:linedetail}.
+
+The opacity of each bundle represents the intensity of the correlation between the cluster and the tweets. The bolder the line the stronger the relationship between the two points is. The primary cluster has a stronger hue in comparison to the secondary and tertiary clusters. These links associated with the secondary and tertiary clusters have a staggered decrease of intensity of color. Thus, we state that the more prominent the link between the tweet and the cluster the higher the opacity of the line. The boxes C, D, and E in Figure~\ref{fig:linedetail} show the opacity values of lines associated with the primary, secondary, and tertiary clusters, respectively.
+
+%------------------------------------------------
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{sample} 
+\end{center}
+\vspace{-.1in}
+\caption{The detailed configuration of line bundles.}
+\label{fig:linedetail}
+\end{figure}
+%------------------------------------------------
