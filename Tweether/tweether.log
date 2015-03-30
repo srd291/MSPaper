@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.19)  29 MAR 2015 21:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.9.19)  29 MAR 2015 21:50
 entering extended mode
 **tweether.tex
 
@@ -479,91 +479,91 @@ File: ./images/PNG/steps.png Graphic file (type png)
 Package pdftex.def Info: ./images/PNG/steps.png used on input line 10.
 (pdftex.def)             Requested size: 218.32841pt x 131.49895pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 58.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 58.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
 
-<./images/PNG/sample.png, id=203, 101.37875pt x 101.37875pt>
-File: ./images/PNG/sample.png Graphic file (type png)
-
-<use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 59.
-(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
-File: ./images/PNG/sample.png Graphic file (type png)
- <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 60.
-(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
+<./images/PNG/sample.png, id=202, 101.37875pt x 101.37875pt>
 File: ./images/PNG/sample.png Graphic file (type png)
 
 <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 64.
-(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
-File: ./images/PNG/sample.png Graphic file (type png)
- <use ./images/PNG/sample.png>
 Package pdftex.def Info: ./images/PNG/sample.png used on input line 65.
 (pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
+File: ./images/PNG/sample.png Graphic file (type png)
+ <use ./images/PNG/sample.png>
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 66.
+(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
+File: ./images/PNG/sample.png Graphic file (type png)
+
+<use ./images/PNG/sample.png>
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 70.
+(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
+File: ./images/PNG/sample.png Graphic file (type png)
+ <use ./images/PNG/sample.png>
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 71.
+(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
 Package marginnote Info: Margin note 3.1 is on absolute page 3
-(marginnote)              on input line 81.
+(marginnote)              on input line 87.
 Package marginnote Info: xpos seems to be 437.01309pt,
-(marginnote)             \marginnoterightadjust ignored on input line 81.
+(marginnote)             \marginnoterightadjust ignored on input line 87.
  [3 <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/ima
 ges/PNG/steps.png> <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPap
 er/Tweether/images/PNG/sample.png>]
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 102.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 108.
 (pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 103.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 109.
 (pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
 
-<./images/PNG/correlation.png, id=221, 428.802pt x 92.9874pt>
+<./images/PNG/correlation.png, id=219, 428.802pt x 92.9874pt>
 File: ./images/PNG/correlation.png Graphic file (type png)
 
 <use ./images/PNG/correlation.png>
-Package pdftex.def Info: ./images/PNG/correlation.png used on input line 140.
+Package pdftex.def Info: ./images/PNG/correlation.png used on input line 146.
 (pdftex.def)             Requested size: 226.18555pt x 49.04897pt.
 
-<./images/PNG/predict.png, id=222, 581.92406pt x 150.5625pt>
+<./images/PNG/predict.png, id=220, 581.92406pt x 150.5625pt>
 File: ./images/PNG/predict.png Graphic file (type png)
 
 <use ./images/PNG/predict.png>
-Package pdftex.def Info: ./images/PNG/predict.png used on input line 178.
+Package pdftex.def Info: ./images/PNG/predict.png used on input line 184.
 (pdftex.def)             Requested size: 201.05595pt x 52.01762pt.
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 190.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 196.
 (pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
 File: ./images/PNG/sample.png Graphic file (type png)
 
 <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 191.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 197.
 (pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 192.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 198.
 (pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
  [4 <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/ima
 ges/PNG/correlation.png> <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git
 /MSPaper/Tweether/images/PNG/predict.png>]
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 309.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 315.
 (pdftex.def)             Requested size: 75.39645pt x 75.39809pt.
 File: ./images/PNG/sample.png Graphic file (type png)
 
 <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 310.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 316.
 (pdftex.def)             Requested size: 75.39645pt x 75.39809pt.
  [5]
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 336.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 342.
 (pdftex.def)             Requested size: 201.05595pt x 201.06157pt.
 )
 (D:\Users\hfyu\Dropbox\work\prj_tweether\doc\paper\git\MSPaper\Tweether\section
-s/s_result.tex <./images/PNG/chart1.png, id=257, 455.45157pt x 255.95625pt>
+s/s_result.tex <./images/PNG/chart1.png, id=255, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart1.png Graphic file (type png)
 
 <use ./images/PNG/chart1.png>
@@ -574,14 +574,14 @@ Underfull \hbox (badness 1845) in paragraph at lines 7--7
 []\OT1/ptm/m/n/8 (a) Tem-per-a-tures in Om-aha and
  []
 
-<./images/PNG/chart2.png, id=258, 455.45157pt x 255.95625pt>
+<./images/PNG/chart2.png, id=256, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart2.png Graphic file (type png)
 
 <use ./images/PNG/chart2.png>
 Package pdftex.def Info: ./images/PNG/chart2.png used on input line 8.
 (pdftex.def)             Requested size: 113.86261pt x 63.98889pt.
 
-<./images/PNG/chart3.png, id=259, 455.45157pt x 255.95625pt>
+<./images/PNG/chart3.png, id=257, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart3.png Graphic file (type png)
 
 <use ./images/PNG/chart3.png>
@@ -605,9 +605,6 @@ c/paper/git/MSPaper/Tweether/images/PNG/chart2.png (PNG copy)> <D:/Users/hfyu/D
 ropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/images/PNG/chart3.png (
 PNG copy)>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [8
 
 ]
@@ -622,10 +619,10 @@ Package rerunfilecheck Info: File `tweether.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
- 6365 strings out of 493921
- 94397 string characters out of 3147285
- 186107 words of memory out of 3000000
- 9440 multiletter control sequences out of 15000+200000
+ 6363 strings out of 493921
+ 94354 string characters out of 3147285
+ 186066 words of memory out of 3000000
+ 9439 multiletter control sequences out of 15000+200000
  53253 words of font info for 105 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  31i,12n,29p,1690b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -639,9 +636,9 @@ tic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
 Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on tweether.pdf (8 pages, 525880 bytes).
+Output written on tweether.pdf (8 pages, 525375 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
+ 342 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
  262 words of extra memory for PDF output out of 10000 (max. 10000000)
 
