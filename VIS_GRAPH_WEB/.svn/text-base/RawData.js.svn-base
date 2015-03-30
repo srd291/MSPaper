@@ -1,0 +1,53 @@
+
+// ============================================================================
+// RawData class - responsible for reading input files and storing their info.
+// ============================================================================
+var RawData = function() {
+	this.datasetClusters = [];
+	this.datasetClusterGroups = [];
+	this.datasetEdges = [];
+	this.datasetCA = [];
+	this.datasetTweetData = [];
+
+	this.clustersPath = "cluster0.txt";//"testWeatherGroups.txt";
+	this.clusterGroupPath = "clusterGroup0.txt";
+	this.clusterEdgesPath = "edge0.txt";
+	this.caPath = "clustAssign0.txt";
+//	  this.socialDataPath = "tweetData.txt";
+//    this.socialDataPath = "tweetData1.txt";
+    this.socialDataPath = "tweetData2.txt";
+//    this.socialDataPath = "tweetData3.txt";
+//    this.socialDataPath = "tweetData4.txt";
+};
+
+RawData.prototype.readAllFiles = function() {
+	this.datasetClusters = this.readTextFile(this.clustersPath);
+	this.datasetClusterGroups = this.readTextFile(this.clusterGroupPath);
+	this.datasetEdges = this.readTextFile(this.clusterEdgesPath);
+	this.datasetCA = this.readTextFile(this.caPath);
+	this.datasetTweetData = this.readTextFile(this.socialDataPath);
+};
+
+RawData.prototype.readTextFile = function(file) {
+    var dataset = [];
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+
+                dataset = allText.split(" ");
+                
+                for(var a = 0; a < dataset.length; ++a) {
+                    dataset[a] = parseFloat(dataset[a]);
+                }
+            }
+        }
+    }
+    rawFile.send(null);
+    return dataset;
+};

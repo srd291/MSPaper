@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">	
+
+<style>
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+   	margin: 0 auto; 
+    display: block;
+}
+
+body{
+	margin: auto auto auto auto;
+}
+
+</style>
+
+<!-- nebraska map related vertex and fragment shaders -->
+<script id="nebraska-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec2 vTexCoord;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+varying vec2 fTexCoord;
+
+void
+main()
+{    
+     fTexCoord = vTexCoord;
+	 gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="nebraska-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying vec2 fTexCoord;
+
+uniform sampler2D texture;
+
+void
+main()
+{
+	gl_FragColor = texture2D(texture, fTexCoord);
+}
+</script>
+
+<!-- weahter map related vertex and fragment shaders -->
+<script id="weathermap-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec2 vTexCoord;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+varying vec2 fTexCoord;
+
+void
+main()
+{    
+     fTexCoord = vTexCoord;
+	 gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="weathermap-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying vec2 fTexCoord;
+
+uniform sampler2D texture;
+
+void
+main()
+{
+	
+	gl_FragColor = texture2D(texture, fTexCoord);
+}
+</script>
+
+<!-- Gaussian BLurring related vertex and fragment shaders -->
+<script id="verticalgaussian-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+varying vec2 vTexCoord;
+
+void main()
+{
+	gl_Position = vPosition;
+	vTexCoord = vPosition.xy * 0.5 + 0.5;
+}
+
+</script>
+
+<script id="verticalgaussian-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform sampler2D texture; 
+uniform float blurStep;
+
+varying vec2 vTexCoord;
+ 
+void main()
+{
+   vec4 sum = vec4(0.0);
+ 
+   // blur in y (vertical)
+   // take nine samples, with the distance blurSize between them
+   // sum += texture2D(texture, vec2(vTexCoord.x - 4.0*blurSize, vTexCoord.y)) * 0.05;
+   // sum += texture2D(texture, vec2(vTexCoord.x - 3.0*blurSize, vTexCoord.y)) * 0.09;
+   // sum += texture2D(texture, vec2(vTexCoord.x - 2.0*blurSize, vTexCoord.y)) * 0.12;
+   // sum += texture2D(texture, vec2(vTexCoord.x - blurSize, vTexCoord.y)) * 0.15;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.16;
+   // sum += texture2D(texture, vec2(vTexCoord.x + blurSize, vTexCoord.y)) * 0.15;
+   // sum += texture2D(texture, vec2(vTexCoord.x + 2.0*blurSize, vTexCoord.y)) * 0.12;
+   // sum += texture2D(texture, vec2(vTexCoord.x + 3.0*blurSize, vTexCoord.y)) * 0.09;
+   // sum += texture2D(texture, vec2(vTexCoord.x + 4.0*blurSize, vTexCoord.y)) * 0.05;
+ 
+   sum += texture2D(texture, vec2(vTexCoord.x - 3.0*blurStep, vTexCoord.y)) * 0.006;
+   sum += texture2D(texture, vec2(vTexCoord.x - 2.0*blurStep, vTexCoord.y)) * 0.061;
+   sum += texture2D(texture, vec2(vTexCoord.x - blurStep, vTexCoord.y)) * 0.242;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.383;
+   sum += texture2D(texture, vec2(vTexCoord.x + blurStep, vTexCoord.y)) * 0.242;
+   sum += texture2D(texture, vec2(vTexCoord.x + 2.0*blurStep, vTexCoord.y)) * 0.061;
+   sum += texture2D(texture, vec2(vTexCoord.x + 3.0*blurStep, vTexCoord.y)) * 0.006;
+
+   gl_FragColor = sum;
+}
+</script>
+
+<script id="horizontalgaussian-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+varying vec2 vTexCoord;
+
+void main()
+{
+	gl_Position = vPosition;
+	vTexCoord = vPosition.xy * 0.5 + 0.5;
+}
+
+</script>
+
+<script id="horizontalgaussian-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform sampler2D texture; 
+uniform float blurStep;
+
+varying vec2 vTexCoord;
+
+
+ 
+void main()
+{
+   vec4 sum = vec4(0.0);
+ 
+   // blur in y (vertical)
+   // take nine samples, with the distance blurSize between them
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - 4.0*blurSize)) * 0.05;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - 3.0*blurSize)) * 0.09;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - 2.0*blurSize)) * 0.12;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - blurSize)) * 0.15;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.16;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + blurSize)) * 0.15;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + 2.0*blurSize)) * 0.12;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + 3.0*blurSize)) * 0.09;
+   // sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + 4.0*blurSize)) * 0.05;
+ 
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - 3.0*blurStep)) * 0.006;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - 2.0*blurStep)) * 0.061;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y - blurStep)) * 0.242;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y)) * 0.383;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + blurStep)) * 0.242;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + 2.0*blurStep)) * 0.061;
+   sum += texture2D(texture, vec2(vTexCoord.x, vTexCoord.y + 3.0*blurStep)) * 0.006;
+
+   gl_FragColor = sum;
+}
+</script>
+
+
+
+<!-- weather-social edges related vertex and fragment shaders -->
+<script id="weathersociallink-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec4 vColor;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+varying vec4 fColor;
+
+void
+main()
+{    
+	gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+    fColor = vColor;
+}
+</script>
+
+<script id="weathersociallink-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying vec4 fColor;
+
+void
+main()
+{
+	//gl_FragColor = vec4(0, 0, 0, 1.0);
+    gl_FragColor = fColor;
+}
+</script>
+
+
+<!-- Social points related vertex and fragment shaders -->
+<script id="socialcircle-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+varying vec4 fPosition;
+
+void
+main()
+{    
+	fPosition = vPosition;
+	gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="socialcircle-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform float radius;
+uniform vec4 center;
+
+varying vec4 fPosition;
+
+void
+main()
+{
+	if(distance(fPosition.xyz, center.xyz) < radius)
+		gl_FragColor = vec4(0.0, 0.0, 1.0, 0.8);
+	else
+		gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
+}
+</script>
+
+
+<!-- Cluster edges related vertex and fragment shaders -->
+<script id="point-vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute float vCluster;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+uniform float pointSize;
+
+varying float fCluster;
+
+void
+main()
+{    
+	fCluster = vCluster;
+	gl_PointSize = pointSize;
+    gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+<script id="point-fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying float fCluster;
+
+uniform vec4 pointColor;
+
+void
+main()
+{
+	vec4 color = pointColor;
+	//if(fCluster == 0.0) color.w = 0.0;
+	//if(fCluster == 1.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+	//if(fCluster == 2.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+	//if(fCluster == 3.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+	//if(fCluster == 4.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+	//if(fCluster == 5.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+	//if(fCluster == 5.0) color = vec4(1.0, 1.0, 1.0, 1.0);
+    
+    if(fCluster == 1.0) color = vec4(1.0, 0.0, 0.0, 1.0);
+	if(fCluster == 2.0) color = vec4(0.0, 1.0, 0.0, 1.0);
+	if(fCluster == 3.0) color = vec4(0.0, 0.0, 1.0, 1.0);
+	if(fCluster == 4.0) color = vec4(1.0, 1.0, 0.0, 1.0);
+	if(fCluster == 5.0) color = vec4(0.0, 1.0, 1.0, 1.0);
+
+	gl_FragColor = color;
+}
+</script>
+
+<script type="text/javascript" src="./Common/MV.js"></script>
+<script type="text/javascript" src="./Common/initShaders.js"></script>
+<script type="text/javascript" src="./Common/webgl-utils.js"></script>
+<script type="text/javascript" src="rotation.js"></script>
+<script type="text/javascript" src="vertices.js"></script>
+<script type="text/javascript" src="movement.js"></script>
+<script type="text/javascript" src="blur.js"></script>
+<script type="text/javascript" src="RawData.js"></script>
+<script type="text/javascript" src="WeatherCluster.js"></script>
+<script type="text/javascript" src="SocialCluster.js"></script>
+<script type="text/javascript" src="Edge.js"></script>
+<script type="text/javascript" src="code.js"></script>
+
+
+</head>
+
+<body>
+<canvas id="gl-canvas" width="2048" height="1024">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+</body>
+</html>
+
