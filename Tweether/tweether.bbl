@@ -138,11 +138,6 @@ E.~Riloff, A.~Qadir, P.~Surve, L.~De~Silva, N.~Gilbert, and R.~Huang.
   situation.
 \newblock In {\em EMNLP}, pages 704--714, 2013.
 
-\bibitem{salvador2007toward}
-S.~Salvador and P.~Chan.
-\newblock Toward accurate dynamic time warping in linear time and space.
-\newblock {\em Intelligent Data Analysis}, 11(5):561--580, 2007.
-
 \bibitem{telea2010image}
 A.~Telea and O.~Ersoy.
 \newblock Image-based edge bundles: Simplified visualization of large graphs.

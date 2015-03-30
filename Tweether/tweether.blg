@@ -8,45 +8,45 @@ Warning--can't use both volume and number fields in hurter2012graph
 Warning--empty journal in pangthumbs
 Warning--empty year in pangthumbs
 Warning--can't use both volume and number fields in telea2010image
-You've used 27 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            662 strings with 8560 characters,
-and the built_in function-call counts, 11038 in all, are:
-= -- 1092
-> -- 543
+            654 strings with 8402 characters,
+and the built_in function-call counts, 10705 in all, are:
+= -- 1057
+> -- 530
 < -- 14
-+ -- 217
-- -- 186
-* -- 812
-:= -- 1747
-add.period$ -- 86
-call.type$ -- 27
-change.case$ -- 171
++ -- 212
+- -- 182
+* -- 786
+:= -- 1692
+add.period$ -- 83
+call.type$ -- 26
+change.case$ -- 166
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 420
-empty$ -- 839
-format.name$ -- 186
-if$ -- 2347
+cite$ -- 31
+duplicate$ -- 409
+empty$ -- 812
+format.name$ -- 182
+if$ -- 2279
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 30
-newline$ -- 137
-num.names$ -- 54
-pop$ -- 193
+int.to.str$ -- 26
+missing$ -- 29
+newline$ -- 132
+num.names$ -- 52
+pop$ -- 190
 preamble$ -- 1
-purify$ -- 147
+purify$ -- 143
 quote$ -- 0
-skip$ -- 310
+skip$ -- 302
 stack$ -- 0
-substring$ -- 731
-swap$ -- 132
+substring$ -- 701
+swap$ -- 131
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 102
+type$ -- 98
 warning$ -- 5
-while$ -- 106
-width$ -- 29
-write$ -- 301
+while$ -- 102
+width$ -- 28
+write$ -- 290
 (There were 5 warnings)

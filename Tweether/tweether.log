@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.13)  29 MAR 2015 20:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.13)  29 MAR 2015 20:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -610,13 +610,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
- 6479 strings out of 493304
- 94837 string characters out of 6139871
- 193602 words of memory out of 5000000
- 9709 multiletter control sequences out of 15000+600000
+ 6477 strings out of 493304
+ 94794 string characters out of 6139871
+ 193561 words of memory out of 5000000
+ 9708 multiletter control sequences out of 15000+600000
  52108 words of font info for 100 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 31i,12n,29p,1690b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 31i,12n,29p,1690b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
@@ -628,10 +628,10 @@ uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
 ive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on tweether.pdf (8 pages, 1069918 bytes).
+Output written on tweether.pdf (8 pages, 1069736 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 355 PDF objects out of 1000 (max. 8388607)
+ 314 compressed objects within 4 object streams
+ 85 named destinations out of 1000 (max. 500000)
  267 words of extra memory for PDF output out of 10000 (max. 10000000)
 
