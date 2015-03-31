@@ -123,8 +123,11 @@ E.~Pampalk, A.~Rauber, and D.~Merkl.
 
 \bibitem{pangthumbs}
 B.~Pang, L.~Lee, and S.~Vaithyanathan.
-\newblock Thumbs up? sentiment classification using machine learning
+\newblock Thumbs up?: Sentiment classification using machine learning
   techniques.
+\newblock In {\em Proceedings of the ACL-02 Conference on Empirical Methods in
+  Natural Language Processing - Volume 10}, EMNLP '02, pages 79--86,
+  Stroudsburg, PA, USA, 2002. Association for Computational Linguistics.
 
 \bibitem{Plutchik2002}
 R.~Plutchik.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.26)  30 MAR 2015 21:18
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.26)  30 MAR 2015 22:46
 entering extended mode
 **tweether.tex
 
@@ -628,16 +628,12 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `tweether.out' has not changed.
 (rerunfilecheck)             Checksum: 37B6C3D82B898292BD16C16C4FE2D851;1739.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
  6374 strings out of 493921
  95392 string characters out of 3144878
- 186077 words of memory out of 3000000
+ 186192 words of memory out of 3000000
  9450 multiletter control sequences out of 15000+200000
  53253 words of font info for 105 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -653,7 +649,7 @@ onts/type1/urw/helvetic/uhvro8a.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/urw/symbol/usyr.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/time
 s/utmr8a.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on tweether.pdf (8 pages, 916957 bytes).
+Output written on tweether.pdf (8 pages, 917118 bytes).
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
