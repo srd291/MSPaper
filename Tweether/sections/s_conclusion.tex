@@ -1,11 +1,45 @@
 \section{Conclusion}
 
-In this paper, we introduced Tweether, a visualization tool for displaying the correlation of weather to tweets. Other than making a novel visualization to showcase correlation between weather and sentiment our main goal was to determine if there was any correlation between usage of social media and weather patterns. Using two data sets, we were able to determine that there is some correlation with the amount of tweets related to weather when it is warm in comparison to the colder weather.
+In this paper we have presented a 3D visualization tool, named Tweether, that can assist analysts to explore the correlation of weather to tweets in geospace and time. We extract the dominated patterns from the weather data and classify the sentiments from the synchronized tweets. We identify the relation between weather and tweets using their geospatial relationship and the Pearson product-moment correlation coefficient. We tailor FDEB to our layered visual design and employ line bundles to show detailed graphs of the connection between the weather clusters and the tweets. With a fine tune on graph vertex placement and edge properties, our line bundling can significantly reduce visual clutter and clearly reveal the sentiment distribution with respect to different weather conditions in 3D. In addition, we develop a prediction model to estimate the future emotions among the tweets according to the forecasted weather. Our Tweether system integrates these data analysis models and interactive visualization, and facilities users to visually examine the connection between weather and moods and identify possible relationship. 
+%
+Although researchers have presented visualizations showcasing social media sentiment or clustering of weather patterns, to the best of our knowledge we have presented here the first application to visualize the correlation between the two. 
 
-Visualizations showcasing social media sentiment has been done many times before, and similarly clustering of weather has been implemented numerous times before. However, there have been few to none works out there which try to find the correlation between the two.
+%Our case study has revealed some discoveries between temperature and moods
+%such as there is correlation with the amount of tweets related to weather when it is warm in comparison to the colder weather,
+%that have been justified in other research areas~\cite{keller2005warm}.
 
-We realized that this work can be expanded to apply to many different scenarios, but we chose to apply it to a question that has been asked for centuries. ...
+The future of this research can be expanded immensely. Although we focus on the relation to temperature in this work, the general design philosophy can be applied to precipitation, humidity, wind speed, or any other weather variables. 
+%As we approach warmer climates
+We can conduct research regarding what the overall sentiment of people to rain, storms, and strong wind conditions. For example, there may be a significant correlation between rain amount and negative tweets~\cite{hannak2012tweetin}. We also believe that we can determine if there is a better correlation of weather to other social phenomena or events, such as road accidents, calamities from natural disasters, or even medical episodes like the flu, which can be directly impacted by weather. Given the possible uncertainty when determining if a person's mood is truly affected by weather, we plan to involve other social phenomena or events to obtain more concrete correlation results.
+%
+This work can be also expanded to other states. The outcomes in more populous states may be different. We are also interested in the states which experience less seasonal changes, and study the corresponding correlation between weather patterns and sentiment.
 
-Our prediction technique worked for...
+Other than visualization we would like to improve sentiment classifier by mining large tweet data to gain information regarding new words, such as determining sarcasm, irony, or satire, and find new linguistic patterns. This can also help improve the sentiment prediction.
 
-The line bundling implemented in this visualization is an entity on its own and should be applied to many different works. ...
+%However, there have been few to none works that attempt to find the correlation between the two.
+
+%the sentiment classification  and show detailed graphs of their connected based on FDEB.
+%
+%
+%With a novel visualization to convey the connection between weather and sentiment in space and time, we can explore the effects of weather patterns on the usage of social media.
+%
+%
+%our main goal was to determine if there was any correlation between usage of social media and weather patterns. Using two data sets, we were able to determine that there is some correlation with the amount of tweets related to weather when it is warm in comparison to the colder weather.
+%
+%Visualizations showcasing social media sentiment has been done many times before, and similarly clustering of weather has been implemented numerous times before. However, there have been few to none works out there which try to find the correlation between the two.
+%
+%We realized that this work can be expanded to apply to many different scenarios, but we chose to apply it to a question that has been asked for centuries. ...
+%
+%Our prediction technique worked for...
+%
+%The line bundling implemented in this visualization is an entity on its own and should be applied to many different works. ...
+
+
+
+%\section{Future Work}
+%
+%The future of this research can be expanded immensely. There are various aspects we can add to the existing work, or even alter the existing work. For altering existing work, we would like to in the future make a cleaner looking visualization. Currently, there seems to be some rigidness to the design where corners could be smoothed have a clearer indication of what places link up to where. We also feel that we can make the design more intuitive without adding additional elements. Other than visualization we would like to implement a better sentiment classifier. Just by polling more tweets and gaining information regarding new words, determining sarcasm, irony, or satire, and finding new linguistic patterns we believe we can gain a better classifier. Additionally we would also like to improve the sentiment prediction.
+%
+%For supplementing this work, we have a few items which we believe we can add. This work as of now only sees the relation to temperature, but this study could be extended to be applied to precipitation, humidity, wind speed, or any other weather variables. There may be a significant correlation between rain amount and negative tweets. As we approach warmer climates we can conduct research regarding what the overall sentiment of people to rain, storms, and strong wind conditions. We also believe that we can determine if there is a better correlation of weather to other variables, possibly ones which are directly impacted by weather such as road accidents, calamities from natural disasters, or even medical episodes like the flu. Since there is no real way to determine if a person's mood is truly affected by weather we think using some other variables can provide more concrete correlation results.
+%
+%This work can be expanded to other states and see if in more populous states the outcome would be more different. We also think that states which don't experience much seasonal change will have very different outcomes and not reflect any correlation between weather patterns and sentiment. 
