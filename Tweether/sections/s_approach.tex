@@ -43,7 +43,7 @@ We use clustering to extract different weather patterns from the WRF data and id
 %Since we don't need to worry about the future at the current state nothing additional is added to the algorithm.
 %For the forecasted weather, we use the dynamic time warping (DTW) algorithm~\cite{salvador2007toward}.
 
-We use the k-means clustering algorithm to partition the 2D array of each time step of TSK into a set of clusters. Some clusters can be dispersed, resulting in random patterns or outliers. These outliers are removed because we assume that moods are affected mostly by comparably dominated weather patterns, and the outliers are small in space and can be changed dynamically in time. To remove outliers, we use a filtering process based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements, this cluster is removed and the data points which belong to a cluster are clustered again. This process is continued until there is no cluster which has less than one percent of the overall cluster count. For the forecasted weather, we use a modified k-means algorithm, where we use the difference between two successive hours for the similarity measures.
+We use the k-means clustering algorithm to partition the 2D array of each time step of TSK into a set of clusters. Some clusters can be dispersed, resulting in random patterns or outliers. These outliers are removed because we assume that moods are affected mostly by comparably dominant weather patterns, and the outliers are small in space and can be changed dynamically in time. To remove outliers, we use a filtering process based on the number of data points in each cluster. If there exists a cluster which has less than one percent of the overall number of clustered elements, this cluster is removed and the data points which belong to a cluster are clustered again. This process is continued until there is no cluster which has less than one percent of the overall cluster count. For the forecasted weather, we use a modified k-means algorithm, where we use the difference between two successive hours for the similarity measures.
 
 %In this study, we choose five clusters that gives us good results.
 %
@@ -56,7 +56,7 @@ To smooth any randomness in the cluster values of the 2D array, we use a low-pas
 %connectivity is used to determine the percentage of surrounding elements with the same cluster value as the central element.
 If at least 5 out of 8 neighbors have the same value, the cluster values of the element is kept; otherwise, the value is removed. We found that repeating this operation 4 times can give us sufficient smooth outcome amongst the majority of 72 hours.
 %The number of times to be repeated is chosen due to it creating the most smooth outcome amongst the majority of 72 hours. Figure~\ref{fig:clustering} (d) shows the result of forecasted weather.
-Figure~\ref{fig:clustering} (a) shows the distribution of TSK at a certain time step. A directly use of k-means can generate many dispersed small regions, as shown in Figure~\ref{fig:clustering} (b). Our method can clearly extract the dominated TSK patterns, as shown in Figure~\ref{fig:clustering} (c). Figure~\ref{fig:clustering} (d) shows the result of forecasted weather.
+Figure~\ref{fig:clustering} (a) shows the distribution of TSK at a certain time step. A direct use of k-means can generate many dispersed small regions, as shown in Figure~\ref{fig:clustering} (b). Our method can clearly extract the dominant TSK patterns, as shown in Figure~\ref{fig:clustering} (c). Figure~\ref{fig:clustering} (d) shows the result of forecasted weather.
 
 %------------------------------------------------
 \begin{figure}[t]
@@ -74,7 +74,7 @@ $\begin{array}{c@{\hspace{0.01\linewidth}}c}
 \end{array}$
 \end{center}
 \vspace{-.1in}
-\caption{(a) The geographic distribution of TSK variable at a time step. (b) The k-means result with outliers. (c) The comparably dominated weather patterns. (d) The clustering result of forecasted weather using the modified k-means clustering. The color values in (a) are mapped to TSK. The color values in (b)-(d) are used to distinguish different clusters.}
+\caption{(a) The geographic distribution of TSK variable at a time step. (b) The k-means result with outliers. (c) The comparably dominant weather patterns. (d) The clustering result of forecasted weather using the modified k-means clustering. The color values in (a) are mapped to TSK. The color values in (b)-(d) are used to distinguish different clusters.}
 \label{fig:clustering}
 \end{figure}
 %------------------------------------------------
@@ -82,7 +82,7 @@ $\begin{array}{c@{\hspace{0.01\linewidth}}c}
 \subsection{Sentiment Classification}
 \label{sec:senti}
 
-Each tweet can contain different attributes other than plain sentences. Due to each tweet being limited to 140 characters, the majority of users tend to use abbreviations, neologisms (e.g., noob, troll), acronyms hashtags, emoticons, or URL's. Abbreviations, acronyms, and neologisms are taken into account for training our classifier. However, a few items are filtered from certain tweets. The filtering process removes emoticons, URL's, usernames, and hashtags. In some situations, it is known that hashtags can provide instant insight as to what the users are feeling~\cite{keller2005warm}. However, most hashtags that we encountered contain less meaning text or sentences for tags instead of keywords.
+Each tweet can contain different attributes other than plain sentences. Due to each tweet being limited to 140 characters, the majority of users tend to use abbreviations, neologisms (e.g., noob, troll), acronyms hashtags, emoticons, or URL's. Abbreviations, acronyms, and neologisms are taken into account for training our classifier. However, a few items are filtered from certain tweets. The filtering process removes emoticons, URL's, usernames, and hashtags. In some situations, it is known that hashtags can provide instant insight as to what the users are feeling~\cite{keller2005warm}. However, most hashtags that we encountered contain meaningless text or sentences for tags instead of keywords.
 
 We use the Naive Bayes classifier~\cite{pak2010twitter} to determine the sentiment of tweets. Robert Plutchik's theory~\cite{Plutchik2002} states that there are eight basic emotions within two categories:
 %----------------------------------------------------------
@@ -99,7 +99,7 @@ These emotions are the basic training portion of the classification of tweets. T
 
 Other than acronyms we also need to take into account profanity. The use of profanity in social media is very high and it may lead to a positive or negative emotion depending on the situation. To take into account how profanity is used in sentences, we fetched tweets to explore the usage of these words. We found that using these tweets to train the classifier gave a high accuracy rate in regards to profanity. In the beginning, we tried to remove any tweet with profanity, which however drastically lowered our tweet count. We then tried to remove the occurrences of profanity in the tweet and used the remaining words as a judge of emotion, which however only worked in a few cases. For the majority of these tweets, we believe that profanity gave insight to negative moods, and thus decided to take into account profanity.
 
-Due to tweets using abbreviations and incomplete sentences, sentiment calculation is a non-trivial task. The classifier is trained using around 10,000 tweets, where each tweet is given a positive or negative score, and there were rare occurrences of duplicate tweet. It is made sure that there is an equal portion of positive and negative tweets in regards to words where sentiment could go either way. Figure~\ref{fig:sentiment} shows the sentiment classification results of two time steps.
+Due to tweets using abbreviations and incomplete sentences, sentiment calculation is a non-trivial task. The classifier is trained using around 10,000 tweets, where each tweet is given a positive or negative score, and there were rare occurrences of duplicate tweet. There is an equal portion of positive and negative tweets in regards to words where sentiment could go either way. Figure~\ref{fig:sentiment} shows the sentiment classification results of two time steps.
 
 %------------------------------------------------
 \begin{figure}[t]
@@ -135,7 +135,7 @@ This is because the sentiment of the tweet can be also affected by its vicinal w
 %------------------------------------------------
 where $X$ is the location and the TSK value of the tweet, $Y$ is the locations and the TSK vlaues of all points of a weather cluster, $cov$ is the covariance, and $\sigma_{X}$ ($\sigma_{Y}$) is the standard deviation of $X$ ($Y$). The correlation value of $\rho_{X,Y}$ ranges from -1 to 1. If the value is 1 (-1), it indicates a perfect positive (negative) linear relationship between $X$ and $Y$. If the value is 0, it means that there is no linear relationship between $X$ and $Y$.
 
-This correlation is computed for the current hour. For each tweet, we use the top two values of correlation to other clusters which we deem the \emph{secondary} and \emph{tertiary} clusters, respectively. In most cases, the secondary and tertiary mapping have the same sentiment since the best fit is a cluster close by with a similar TSK value. Figure~\ref{fig:correlation} illustrates the primary, secondary and tertiary clusters of $T_1$ and $T_2$ respectively.
+This correlation is computed for the current hour. For each tweet, we use the top two values of correlation to other clusters which we deem the \emph{secondary} and \emph{tertiary} clusters, respectively. The secondary and tertiary mapping have the same sentiment since the best fit is a cluster close by with a similar TSK value. Figure~\ref{fig:correlation} illustrates the primary, secondary and tertiary clusters of $T_1$ and $T_2$ respectively.
 
 %\marginnote{\pin{why?}}\pin{With a correlation value closer to 1 we keep the sentiment expressed in the primary cluster. However, in the case of a correlation value closer to -1, we swap the sentiment expressed in the primary cluster. We look for the values closest to 1 or -1, and assign the proper sentiment value according to the sign.}
 
@@ -170,10 +170,10 @@ Predicting the future is mostly based on facts. We have at our disposal the curr
 Determining the mood of the current locations up to 72 hours in the future is non-trivial. Our prediction technique is based on the current hour and the previous day. We choose not to use data from earlier times because the trends today are definitely not the same a year ago, let alone a month ago. In addition to this, we should state that the long-term weather is relatively unpredictable for the state of Nebraska.
 
 %We start with the most rudimentary implementation, by solely comparing which number is closer by simply comparing the difference.
-We start with a simple strategy by comparing the TSK difference. If the current temperature is closer to the predicted temperature, we use the sentiment for the current hour to show the prediction. If the sentiment of the hour we are trying to pick has a closer temperature to the same hour of the previous day, we use the sentiment from the previous day.
+We start with a simple method by only comparing the TSK difference. If the current temperature is closer to the predicted temperature, we use the sentiment for the current hour to show the prediction. If the sentiment of the hour we are trying to pick has a closer temperature to the same hour of the previous day, we use the sentiment from the previous day.
 
 %Seeing that the previously stated implementation was very crude, we tried a different method.
-However, this simple strategy does not consider the time difference. Alternatively, we can state that if the current hour is closer to the predicted hour we will place a higher weight on using the current hours values; however, when the current hour goes further from the predicted hour, we can place more weight on the previous day value. %That is the further we are from the current hour the less weight it plays.
+However, this simple method neglects the time. Alternatively, we can consider the time difference and state that if the current hour is closer to the predicted hour we will place a higher weight on using the current hours values; when the current hour goes further from the predicted hour, we can place more weight on the previous day value. %That is the further we are from the current hour the less weight it plays.
 Using this method we take the sentiment based on the percentage of the weight in terms of time.
 
 %The final method we use is a combination of above methods. We first determine the closest temperature value to the hour we are trying to predict the sentiment. Then, based on the difference, we determine the weight the two different sentiment sets place \eqref{eq:w}. As we see in \eqref{eq:p} X and Y represent the current temperature and the previous day's temperature respectively, and Z represents the temperature of the hour that we are trying to predict. The number of good and bad sentiment lines is calculated in \eqref{eq:gb}, where $G$ and $B$ represent the number good and bad tweets predicted by using the good and bad tweets of X and Y. The details regarding how well the different methods performed will be seen later on in the case studies.
@@ -222,7 +222,7 @@ The final method we use is a combination of above methods. As shown in Figure~\r
 \vspace{-0.05in}
 %----------------------------------------------------------
 %
-Based on these information, we first compute the differences between the TSK values:
+Based on this information, we first compute the differences between the TSK values:
 %
 %----------------------------------------------------------
 \begin{equation}
@@ -249,7 +249,7 @@ g_t = g_{t'}w_{t'} + g_{t''}w_{t''};	\qquad b_t = b_{t'}w_{t'} + b_{t''}w_{t''}
 \end{equation}
 %----------------------------------------------------------
 %
-The method accounts directly for both the time and the temperature. We will demonstrate the details regarding how well the different methods in our case studies.
+The method accounts directly for both the time and the temperature. We will demonstrate the details regarding how well these three methods in Section~\ref{sec:caseprediction}.
 
 %We first determine the closest temperature value to the hour we are trying to predict the sentiment. Then, based on the difference, we determine the weight the two different sentiment sets place \eqref{eq:w}. As we see in \eqref{eq:p} X and Y represent the current temperature and the previous day's temperature respectively, and Z represents the temperature of the hour that we are trying to predict. The number of good and bad sentiment lines is calculated in \eqref{eq:gb}, where $G$ and $B$ represent the number good and bad tweets predicted by using the good and bad tweets of X and Y. The details regarding how well the different methods performed will be seen later on in the case studies.
 %
@@ -344,6 +344,6 @@ Similar to FDEB, we use an iterative simulation to refine the bundling. The simu
 
 Each bundle is composed of multiple lines where each line represents one tweet. Every line corresponds to a positive or negative sentiment. The sentiment is represented in two ways. First, from the weather cluster perspective, we indicate the sentiment according to which corner of a cluster the bundle is linked to. In this way, we can easily examine the sentiments affected by a certain cluster, as shown in the two highlighted boxes As in Figure~\ref{fig:linedetail}. Second, from the tweet perspective, we associate the positive sentiments to the green bundles and the negative sentiments to the red bundles. In this way, we can intuitively convey the sentiments distribution among the tweets, as shown in the highlighted box B in Figure~\ref{fig:linedetail}.
 
-The opacity of each bundle represents the intensity of the correlation between the cluster and the tweets. The bolder the line the stronger the relationship between the two points is. The primary cluster has a stronger hue in comparison to the secondary and tertiary clusters. These links associated with the secondary and tertiary clusters have a staggered decrease of intensity of color. Thus, we state that the more prominent the link between the tweet and the cluster the higher the opacity of the line. The lines C, D, and E in Figure~\ref{fig:linedetail} show an example of the opacity values of lines associated with the primary, secondary, and tertiary clusters, respectively. 
+The opacity of each bundle represents the intensity of the correlation between the cluster and the tweets. The bolder the line the stronger the relationship between the two points is. The primary cluster has a stronger hue in comparison to the secondary and tertiary clusters. These links associated with the secondary and tertiary clusters have a staggered decrease of intensity of color. Thus, we state that the more prominent the link between the tweet and the cluster the higher the opacity of the line. The lines C, D, and E in Figure~\ref{fig:linedetail} show an example of the opacity values of lines associated with the primary, secondary, and tertiary clusters, respectively.
 
 
