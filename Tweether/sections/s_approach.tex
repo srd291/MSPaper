@@ -62,7 +62,7 @@ Figure~\ref{fig:clustering} (a) shows the distribution of TSK at a certain time 
 \begin{figure}[t]
 \begin{center}
 $\begin{array}{c@{\hspace{0.01\linewidth}}c}
-\includegraphics[width=0.49\linewidth]{clustering_org} &
+\includegraphics[width=0.49\linewidth]{clustering_raw} &
 \includegraphics[width=0.49\linewidth]{clustering_org}
 \\
 \mbox{\small{(a)}} & \mbox{\small{(b)}}
@@ -74,7 +74,7 @@ $\begin{array}{c@{\hspace{0.01\linewidth}}c}
 \end{array}$
 \end{center}
 \vspace{-.1in}
-\caption{(a) The distribution of TSK variable at a time step. (b) The k-means result with outliers. (c) The comparably dominated weather patterns. (d) The clustering result of forecasted weather using the modified k-means clustering. The color values in (a) are mapped to TSK. The color values in (b)-(d) are used to distinguish different clusters.}
+\caption{(a) The geographic distribution of TSK variable at a time step. (b) The k-means result with outliers. (c) The comparably dominated weather patterns. (d) The clustering result of forecasted weather using the modified k-means clustering. The color values in (a) are mapped to TSK. The color values in (b)-(d) are used to distinguish different clusters.}
 \label{fig:clustering}
 \end{figure}
 %------------------------------------------------
@@ -105,14 +105,14 @@ Due to tweets using abbreviations and incomplete sentences, sentiment calculatio
 \begin{figure}[t]
 \begin{center}
 $\begin{array}{c}
-\includegraphics[width=0.8\linewidth]{sentiment_t1} \\
+\includegraphics[width=0.9\linewidth]{sentiment_t1} \\
 \mbox{\small{(a)}} \\
-\includegraphics[width=0.8\linewidth]{sentiment_t2} \\
+\includegraphics[width=0.9\linewidth]{sentiment_t2} \\
 \mbox{\small{(b)}}
 \end{array}$
 \end{center}
 \vspace{-.1in}
-\caption{The sentiment classification results and their geographic distribution of two time steps, where a green point corresponds to a tweet with positive sentiment and a red point corresponds to a tweet with negative sentiment.}
+\caption{The sentiment classification results and their geographic distribution of two time steps over Nebraska, where a green point corresponds to a tweet with positive sentiment and a red point corresponds to a tweet with negative sentiment.}
 \label{fig:sentiment}
 \end{figure}
 %------------------------------------------------
@@ -193,15 +193,15 @@ Using this method we take the sentiment based on the percentage of the weight in
 \begin{figure*}[t]
 \begin{center}
 $\begin{array}{c@{\hspace{0.01\linewidth}}c@{\hspace{0.01\linewidth}}c}
-\includegraphics[width=0.2\linewidth]{sample} &
-\includegraphics[width=0.2\linewidth]{sample} &
-\includegraphics[width=0.2\linewidth]{sample}
+\includegraphics[width=0.33\linewidth]{endpoints_1} &
+\includegraphics[width=0.33\linewidth]{endpoints_2} &
+\includegraphics[width=0.33\linewidth]{endpoints_3}
 \\
 \mbox{\small{(a)}} & \mbox{\small{(b)}} & \mbox{\small{(c)}}
 \end{array}$
 \end{center}
 \vspace{-.1in}
-\caption{Determining the best positions for indicating negative and positive tweets in the cloud repressions of clusters.}
+\caption{Determining the best positions for indicating negative and positive tweets in the cloud repressions of clusters. (a) Use the different point of a cluster for each edge. It can easily generate visual clutter. (b) Use the center points of the two halves of a cluster. This method is effective for a large cluster $A$, but makes it difficult to distinguish lines for a small cluster $B$. (c) Use the top rightmost point and  the bottom leftmost point of a cluster. This method is effective for both the large and small clusters, $A$ and $B$, respectively.}
 \label{fig:corners}
 \end{figure*}
 %------------------------------------------------
@@ -277,11 +277,12 @@ The layers are connected via line bundles to dictate how the majority of the Twi
 The visualization is represented by three main layers. The base layer contains the map of Nebraska and neighboring states. We have chosen to show the counties in Nebraska to gain insight on the population distribution in the state, and choose to keep the other states plain to indicate emphasis of correlation to Nebraska. On the map of Nebraska, there are circles indicating the area that Twitter users are posting from. The radius of a circle corresponds to the amount of people posting tweets in the vicinity. Using the WRF data set for the longitude and latitude values for the map, we compute the values at intermediate locations via interpolation. We use the longitude and latitude location of each tweet to place it on the map.
 %For each tweet location, the Euclidean distance is calculated to get the nearest longitude and latitude location.
 
-The topmost layer shows the weather clusters by lifting each cluster vertically from its geographic region on the map. The middle layer contains the edges which starts from the Twitter user location and ends at the weather cluster they correspond to above, according to the correlation results.
+The topmost layer shows the weather clusters by lifting each cluster vertically from its geographic region on the ground of map. We visualize the weather clusters using a cloud representation (Section\ref{sec:cloud}). The middle layer contains the edges which starts from the Twitter user location and ends at the weather cluster they correspond to above, according to the correlation results. We use the edge bundling method to succinctly display the complex edges while suppressing visual clutter (Section~\ref{sec:line}).
 
 \subsubsection{Cloud Representation}
+\label{sec:cloud}
 
-In our visualization, the weather clusters appear as clouds. Each cluster is blurred at the boundaries to make the graphical interface cleaner and aesthetically pleasing. The color of each weather is mapped from indigo to red according to TSK. Clusters which are not connected of the same color indicate the same conditions (i.e., similar temperature) as other locations of the state. %as seen in Figure \ref{fig:blur}.
+In our visualization, the weather clusters appear as clouds. Each cluster is blurred at the boundaries to make the graphical interface cleaner and aesthetically pleasing. The color of each weather is mapped from indigo to dark orange with respect to lower and higher TSK values. Clusters which are not connected of the same color indicate the same conditions (i.e., similar temperature) as other locations of the state. %as seen in Figure \ref{fig:blur}.
 
 Because each cluster can be possibly correlated to the tweets with positive and negative emotions, we need to locate two types of edge points on the cluster for the tweets to link up to. We explore three designs on how the points should be picked. First, we assign half of one cluster to the positive emotions and the other half to the negative emotions. This visualization can easily generate a cluttered output, as shown in Figure~\ref{fig:corners} (a). Second, we split a cluster in half and use the center points of the two halves. This method is effective until we come into situations where the cluster is represented by a very small amount of data points, causing a clutter visualization again, as shown in Figure~\ref{fig:corners} (b). Finally, we map the tweets with positive emotions to the top rightmost point of a cluster, and map the tweetws with negative emotions to the bottom leftmost point of the cluster. This method can significantly reduce visual clutter and help in situations where the cluster size is fairly small, as shown in Figure~\ref{fig:corners} (c).
 %Initially, we had the Twitter user space and the weather space flipped. However, we believe that the way we present the data is novel and more intuitive.
@@ -311,16 +312,25 @@ Because each cluster can be possibly correlated to the tweets with positive and 
 %------------------------------------------------
 \begin{figure}[t]
 \begin{center}
-$\begin{array}{c@{\hspace{0.01\linewidth}}c}
-\includegraphics[width=0.3\linewidth]{sample} &
-\includegraphics[width=0.3\linewidth]{sample}
-\\
-\mbox{\small{(a)}} & \mbox{\small{(b)}}
-\end{array}$
+\includegraphics[width=1.0\linewidth]{edge_line} \\
+\mbox{\small{(a)}} \\
+\includegraphics[width=1.0\linewidth]{edge_bundle} \\
+\mbox{\small{(b)}}
 \end{center}
 \vspace{-.1in}
 \caption{(a) A direct visualization of the correlation graph. (b) The edge bundling result.}
 \label{fig:compareline}
+\end{figure}
+%------------------------------------------------
+
+%------------------------------------------------
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=1.0\linewidth]{bundle_details}
+\end{center}
+\vspace{-.1in}
+\caption{The detailed configuration of line bundles.}
+\label{fig:linedetail}
 \end{figure}
 %------------------------------------------------
 
@@ -332,17 +342,8 @@ The original paper of FDEB~\cite{holten2009force} proposed four criteria, angle,
 
 Similar to FDEB, we use an iterative simulation to refine the bundling. The simulation starts with $P_0$ subdivision points for each edge, and then performs $C$ simulation cycles. During each cycle, a specific number of iteration steps $I$ is conducted to move the subdivision points to reach an equilibrium between forces. The number of iteration steps during the first cycle is $I_0$. After performing a cycle, the number of subdivision points is doubled to smoothen the edges, and the number of iteration steps $I$ is decreased by a factor $R$. We found that a configuration of $P_0=1$, $C=6$, $I_0=50$, and $R=\frac{2}{3}$ leads to appropriate results in our design. Figure~\ref{fig:compareline} (b) shows the edge bundling result of the same graph as in (a).
 
-Each bundle is composed of multiple lines where each line represents one tweet. Every line corresponds to a positive or negative sentiment. The sentiment is represented in two ways. First, from the weather cluster perspective, we indicate the sentiment according to which corner of a cluster the bundle is linked to. In this way, we can easily examine the sentiments affected by a certain cluster, as shown in the highlighted box A in Figure~\ref{fig:linedetail}. Second, from the tweet perspective, we associate the positive sentiments to the green bundles and the negative sentiments to the red bundles. In this way, we can intuitively convey the sentiments distribution among the tweets, as shown in the highlighted box B in Figure~\ref{fig:linedetail}.
+Each bundle is composed of multiple lines where each line represents one tweet. Every line corresponds to a positive or negative sentiment. The sentiment is represented in two ways. First, from the weather cluster perspective, we indicate the sentiment according to which corner of a cluster the bundle is linked to. In this way, we can easily examine the sentiments affected by a certain cluster, as shown in the two highlighted boxes As in Figure~\ref{fig:linedetail}. Second, from the tweet perspective, we associate the positive sentiments to the green bundles and the negative sentiments to the red bundles. In this way, we can intuitively convey the sentiments distribution among the tweets, as shown in the highlighted box B in Figure~\ref{fig:linedetail}.
 
-The opacity of each bundle represents the intensity of the correlation between the cluster and the tweets. The bolder the line the stronger the relationship between the two points is. The primary cluster has a stronger hue in comparison to the secondary and tertiary clusters. These links associated with the secondary and tertiary clusters have a staggered decrease of intensity of color. Thus, we state that the more prominent the link between the tweet and the cluster the higher the opacity of the line. The boxes C, D, and E in Figure~\ref{fig:linedetail} show the opacity values of lines associated with the primary, secondary, and tertiary clusters, respectively.
+The opacity of each bundle represents the intensity of the correlation between the cluster and the tweets. The bolder the line the stronger the relationship between the two points is. The primary cluster has a stronger hue in comparison to the secondary and tertiary clusters. These links associated with the secondary and tertiary clusters have a staggered decrease of intensity of color. Thus, we state that the more prominent the link between the tweet and the cluster the higher the opacity of the line. The lines C, D, and E in Figure~\ref{fig:linedetail} show an example of the opacity values of lines associated with the primary, secondary, and tertiary clusters, respectively. 
 
-%------------------------------------------------
-\begin{figure}[t]
-\begin{center}
-\includegraphics[width=0.8\linewidth]{sample}
-\end{center}
-\vspace{-.1in}
-\caption{The detailed configuration of line bundles.}
-\label{fig:linedetail}
-\end{figure}
-%------------------------------------------------
+
