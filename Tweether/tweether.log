@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.26)  30 MAR 2015 22:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.24)  31 MAR 2015 09:09
 entering extended mode
 **tweether.tex
 
@@ -8,10 +8,10 @@ LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
 croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
 ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
  lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
@@ -282,9 +282,9 @@ Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count108
-("d:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+("d:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen119
@@ -523,47 +523,56 @@ es/PNG/steps.png> <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPape
 r/Tweether/images/PNG/clustering_org.png> <D:/Users/hfyu/Dropbox/work/prj_tweet
 her/doc/paper/git/MSPaper/Tweether/images/PNG/clustering_smooth.png> <D:/Users/
 hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/images/PNG/cluste
-ring_time.png>] <./images/PNG/sample.png, id=222, 101.37875pt x 101.37875pt>
-File: ./images/PNG/sample.png Graphic file (type png)
+ring_time.png>]
+<./images/PNG/sentiment_t1.png, id=222, 754.61925pt x 363.759pt>
+File: ./images/PNG/sentiment_t1.png Graphic file (type png)
 
-<use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 108.
-(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
-File: ./images/PNG/sample.png Graphic file (type png)
- <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 109.
-(pdftex.def)             Requested size: 113.09277pt x 113.09636pt.
+<use ./images/PNG/sentiment_t1.png>
+Package pdftex.def Info: ./images/PNG/sentiment_t1.png used on input line 108.
+(pdftex.def)             Requested size: 201.05595pt x 96.91742pt.
 
-<./images/PNG/correlation.png, id=227, 428.802pt x 92.9874pt>
+<./images/PNG/sentiment_t2.png, id=223, 754.61925pt x 363.759pt>
+File: ./images/PNG/sentiment_t2.png Graphic file (type png)
+
+<use ./images/PNG/sentiment_t2.png>
+Package pdftex.def Info: ./images/PNG/sentiment_t2.png used on input line 110.
+(pdftex.def)             Requested size: 201.05595pt x 96.91742pt.
+
+<./images/PNG/correlation.png, id=228, 428.802pt x 92.9874pt>
 File: ./images/PNG/correlation.png Graphic file (type png)
 
 <use ./images/PNG/correlation.png>
 Package pdftex.def Info: ./images/PNG/correlation.png used on input line 146.
 (pdftex.def)             Requested size: 251.31898pt x 54.49886pt.
 
-<./images/PNG/predict.png, id=228, 581.92406pt x 150.5625pt>
+<./images/PNG/predict.png, id=229, 581.92406pt x 150.5625pt>
 File: ./images/PNG/predict.png Graphic file (type png)
 
 <use ./images/PNG/predict.png>
 Package pdftex.def Info: ./images/PNG/predict.png used on input line 184.
 (pdftex.def)             Requested size: 201.05595pt x 52.01762pt.
+
+<./images/PNG/sample.png, id=230, 101.37875pt x 101.37875pt>
+File: ./images/PNG/sample.png Graphic file (type png)
+
+<use ./images/PNG/sample.png>
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 196.
+(pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 196.
+Package pdftex.def Info: ./images/PNG/sample.png used on input line 197.
 (pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
 File: ./images/PNG/sample.png Graphic file (type png)
 
 <use ./images/PNG/sample.png>
-Package pdftex.def Info: ./images/PNG/sample.png used on input line 197.
-(pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
-File: ./images/PNG/sample.png Graphic file (type png)
- <use ./images/PNG/sample.png>
 Package pdftex.def Info: ./images/PNG/sample.png used on input line 198.
 (pdftex.def)             Requested size: 102.98317pt x 102.98573pt.
  [4 <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/ima
-ges/PNG/sample.png> <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPa
-per/Tweether/images/PNG/correlation.png> <D:/Users/hfyu/Dropbox/work/prj_tweeth
-er/doc/paper/git/MSPaper/Tweether/images/PNG/predict.png>]
+ges/PNG/sentiment_t1.png> <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/gi
+t/MSPaper/Tweether/images/PNG/sentiment_t2.png> <D:/Users/hfyu/Dropbox/work/prj
+_tweether/doc/paper/git/MSPaper/Tweether/images/PNG/correlation.png> <D:/Users/
+hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/images/PNG/predic
+t.png>]
 File: ./images/PNG/sample.png Graphic file (type png)
  <use ./images/PNG/sample.png>
 Package pdftex.def Info: ./images/PNG/sample.png used on input line 315.
@@ -573,28 +582,30 @@ File: ./images/PNG/sample.png Graphic file (type png)
 <use ./images/PNG/sample.png>
 Package pdftex.def Info: ./images/PNG/sample.png used on input line 316.
 (pdftex.def)             Requested size: 75.39645pt x 75.39809pt.
- [5]
+ [5 <D:/Users/hfyu/Dropbox/work/prj_tweether/doc/paper/git/MSPaper/Tweether/ima
+ges/PNG/sample.png>]
 File: ./images/PNG/sample.png Graphic file (type png)
- <use ./images/PNG/sample.png>
+
+<use ./images/PNG/sample.png>
 Package pdftex.def Info: ./images/PNG/sample.png used on input line 342.
 (pdftex.def)             Requested size: 201.05595pt x 201.06157pt.
 )
 (D:\Users\hfyu\Dropbox\work\prj_tweether\doc\paper\git\MSPaper\Tweether\section
-s/s_result.tex <./images/PNG/chart1.png, id=264, 455.45157pt x 255.95625pt>
+s/s_result.tex <./images/PNG/chart1.png, id=268, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart1.png Graphic file (type png)
 
 <use ./images/PNG/chart1.png>
 Package pdftex.def Info: ./images/PNG/chart1.png used on input line 27.
 (pdftex.def)             Requested size: 251.31898pt x 141.23721pt.
 
-<./images/PNG/chart2.png, id=265, 455.45157pt x 255.95625pt>
+<./images/PNG/chart2.png, id=269, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart2.png Graphic file (type png)
 
 <use ./images/PNG/chart2.png>
 Package pdftex.def Info: ./images/PNG/chart2.png used on input line 29.
 (pdftex.def)             Requested size: 251.31898pt x 141.23721pt.
 
-<./images/PNG/chart3.png, id=266, 455.45157pt x 255.95625pt>
+<./images/PNG/chart3.png, id=270, 455.45157pt x 255.95625pt>
 File: ./images/PNG/chart3.png Graphic file (type png)
 
 <use ./images/PNG/chart3.png>
@@ -628,13 +639,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
 Package rerunfilecheck Info: File `tweether.out' has not changed.
 (rerunfilecheck)             Checksum: 37B6C3D82B898292BD16C16C4FE2D851;1739.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 156.
  ) 
 Here is how much of TeX's memory you used:
- 6374 strings out of 493921
- 95392 string characters out of 3144878
- 186192 words of memory out of 3000000
- 9450 multiletter control sequences out of 15000+200000
+ 6383 strings out of 493921
+ 95672 string characters out of 3144879
+ 185357 words of memory out of 3000000
+ 9457 multiletter control sequences out of 15000+200000
  53253 words of font info for 105 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  31i,12n,29p,1712b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -649,9 +664,9 @@ onts/type1/urw/helvetic/uhvro8a.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/urw/symbol/usyr.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/time
 s/utmr8a.pfb><d:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on tweether.pdf (8 pages, 917118 bytes).
+Output written on tweether.pdf (8 pages, 3356796 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
+ 352 PDF objects out of 1000 (max. 8388607)
  79 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 words of extra memory for PDF output out of 10000 (max. 10000000)
 
