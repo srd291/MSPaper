@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tweether.aux
+The style file: abbrv.bst
+Database file #1: tweether.bib
+Warning--can't use both volume and number fields in holten2009force
+Warning--can't use both volume and number fields in hurter2012graph
+Warning--can't use both volume and number fields in telea2010image
+You've used 26 entries,
+            2118 wiz_defined-function locations,
+            659 strings with 8579 characters,
+and the built_in function-call counts, 10900 in all, are:
+= -- 1086
+> -- 530
+< -- 15
++ -- 212
+- -- 182
+* -- 796
+:= -- 1713
+add.period$ -- 85
+call.type$ -- 26
+change.case$ -- 166
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 420
+empty$ -- 831
+format.name$ -- 182
+if$ -- 2335
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 29
+newline$ -- 133
+num.names$ -- 52
+pop$ -- 186
+preamble$ -- 1
+purify$ -- 143
+quote$ -- 0
+skip$ -- 312
+stack$ -- 0
+substring$ -- 725
+swap$ -- 139
+text.length$ -- 15
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 98
+warning$ -- 3
+while$ -- 105
+width$ -- 28
+write$ -- 297
+(There were 3 warnings)

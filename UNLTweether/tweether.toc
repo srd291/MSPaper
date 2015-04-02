@@ -1,0 +1,28 @@
+\contentsline {chapter}{Contents}{iii}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{2}
+\contentsline {chapter}{\chapternumberline {2}Related Work}{4}
+\contentsline {section}{\numberline {2.1}Psychological Studies}{4}
+\contentsline {section}{\numberline {2.2}Social Media, Weather, and Emotions}{5}
+\contentsline {section}{\numberline {2.3}Sentiment Analysis in Social Media}{6}
+\contentsline {section}{\numberline {2.4}Visualizations}{7}
+\contentsline {subsection}{\numberline {2.4.1}Clustering}{7}
+\contentsline {subsection}{\numberline {2.4.2}Bundling}{7}
+\contentsline {section}{\numberline {2.5}Predictions}{8}
+\contentsline {chapter}{\chapternumberline {3}Approach}{9}
+\contentsline {section}{\numberline {3.1}Data Sets}{10}
+\contentsline {section}{\numberline {3.2}Weather Clustering}{11}
+\contentsline {section}{\numberline {3.3}Sentiment Classification}{13}
+\contentsline {section}{\numberline {3.4}Correlation}{14}
+\contentsline {section}{\numberline {3.5}Prediction}{16}
+\contentsline {section}{\numberline {3.6}Visualization}{19}
+\contentsline {subsection}{\numberline {3.6.1}Layers}{19}
+\contentsline {subsection}{\numberline {3.6.2}Cloud Representation}{20}
+\contentsline {subsection}{\numberline {3.6.3}Edge Bundling}{21}
+\contentsline {chapter}{\chapternumberline {4}Results}{24}
+\contentsline {section}{\numberline {4.1}Tweet Weather Correlation}{24}
+\contentsline {subsection}{\numberline {4.1.1}All Tweets}{25}
+\contentsline {subsection}{\numberline {4.1.2}Weather Related Tweets}{27}
+\contentsline {section}{\numberline {4.2}Prediction}{28}
+\contentsline {chapter}{\chapternumberline {5}Discussion}{32}
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{34}
+\contentsline {chapter}{Bibliography}{36}

@@ -1,0 +1,121 @@
+%%
+%% This is file `skeleton.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% nuthesis.dtx  (with options: `skeleton')
+%% 
+
+%%
+%% For common degrees, you can use the class options:
+%% phd, edd, ms, ma
+%% phd is the default
+\documentclass[print]{nuthesis}
+
+\usepackage{graphicx}
+\graphicspath{{./images/PNG/}}
+
+
+\begin{document}
+%% Start formatting the first few special pages
+%% frontmatter is needed to set the page numbering correctly
+\frontmatter
+
+\title{Tweether: A Visualization Tool Displaying Correlation of \\Weather to Tweets}
+\author{Shruti Daggumati}
+\adviser{Dr. Honfeng Yu}
+%\adviserAbstract{Someone}
+\major{Computer Science}
+\degreemonth{May}
+\degreeyear{2015}
+%%
+%% For most people the defaults will be correct, so they are commented
+%% out. To manually set these, just uncomment and make the needed
+%% changes.
+%% \college{Your college}
+%% \city{Your City}
+%%
+%% For most people the following can be changed with a class
+%% option. To manually set these, just uncomment the following and
+%% make the needed changes.
+\doctype{Project}
+\degree{Master of Science}
+\degreeabbreviation{M.S.}
+%%
+%% Now that we know everything we need, we can generate the title page
+%% itself.
+%%
+\maketitle
+%%
+%% You have a maximum of 350 words for your abstract, which includes
+%% your title, name, etc.
+%%
+%% Required
+\begin{abstract}
+As the generation of social media we can instantly express how our day is going; however, unknowingly the weather can play a key role in how we are feeling. The weather dictates our lives regardless of what may be happening. The relationship between weather and mood has been immensely studied to show that the weather does play a major factor regarding our emotions. However, how much weather affects us and how we display the relationship using social media remain interesting questions. Based on the natural correlation between weather and mood we propose \emph{Tweether}, a real-time weather and tweet visualization, to see how Twitter users are feeling. This visualization displays a current reflection of emotions in a set of select geographic regions and also predicts possible emotions in these regions in response to the weather forecast. The visualization uses multiple layers to show the connection between locations, weather, and emotions. By aggregating multiple users with similar emotions, we create an aesthetic design that is relatively free of visual clutter and is simple to understand in a 3D manner.
+\end{abstract}
+
+%% Optional
+%% \begin{copyrightpage}
+%% \end{copyrightpage}
+
+%% Optional
+%% \begin{dedication}
+%% \end{dedication}
+
+%% Optional
+%% \begin{acknowledgments}
+%% \end{acknowledgments}
+
+%% Optional
+%% \begin{grantinfo}
+%% \end{grantinfo}
+%% The ToC is required
+%% Uncomment these if need be
+
+%% The ToC is required
+\tableofcontents
+%% Uncomment these if need be
+%\listoffigures
+%\listoftables
+%%
+%% ``Real'' beginning of the document.
+%% mainmatter is needed to set the page numbering correctly
+%%   mainmatter is needed after the ToC, (LoF, and LoT) to set the
+%%   page numbering correctly for the main body
+\mainmatter
+
+%% Thesis goes here
+
+
+\input{sections/s_introduction.tex}
+\input{sections/s_related.tex}
+\input{sections/s_approach.tex}
+\input{sections/s_result.tex}
+\input{sections/s_discussion.tex}
+\input{sections/s_conclusion.tex}
+
+%% backmatter is needed at the end of the main body of your thesis to
+%% set up page numbering correctly for the remainder of the thesis
+\backmatter
+
+%% Start the correct formatting for the appendices
+\appendix
+
+%% Appendices go here (if you have them)
+
+%% Bibliography goes here (You better have one)
+%% BibTeX is your friend
+\bibliographystyle{plain}
+\bibliography{tweether}
+%% Pull in all the entries in the bibtex file. Is is a useful trick to
+%% check all your references.
+\nocite{*}
+
+%% Index go here (if you have one)
+
+\end{document}
+\endinput
+%%
+%% End of file `thesis-test.tex'.

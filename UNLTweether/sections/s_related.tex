@@ -1,0 +1,45 @@
+\chapter{Related Work}
+
+Visualizations correlating sentiment and weather are highly sparse, and the presence of live visualizations is also non-existent. However, there are works showing the two portions of this work. Clustering of weather data has been done many times in the past. There is also a vast number of visualizations which indicate the sentiment of different locations.
+
+\section{Psychological Studies}
+
+The natural correlation of weather with emotion has been studied profusely~\cite{bollen2011twitter,denissen2008effects,hannak2012tweetin,howarth1984multidimensional,lambert2002effect}. With various factors among the different research, the conclusions attained were broad. In general, humidity, sunshine, and temperature have the greatest effect on mood~\cite{bollen2011twitter}.
+
+In some research on weather and mood, correlations have been debunked. There is no consistency due to seasons and time spent outside~\cite{denissen2008effects}. Having certain emotions regarding the season has strong links to seasonal affective disorder (SAD), where people are depressed in regards to changes of the seasons, which usually occurs during the winter. However, most psychologists believe that the weather has an impact on psychological intentions~\cite{hannak2012tweetin}. When observing serotonin levels in regards to sunshine there were strong relationships to being happy~\cite{howarth1984multidimensional}. It has been found that weather may not play a big role in the positive attitude, but the negative attitude can have a correlation with weather~\cite{lambert2002effect}.
+
+
+\section{Social Media, Weather, and Emotions}
+
+When dealing with the correlation of weather with emotion the research is fairly sparse. Few works present the use of Twitter data for their social media feed and some form of weather data. However in comparison to our work the following research used past data and developed a 2D graph implementation for visualization.
+
+Work has been done using two to four years of Twitter data and correlating it with meteorological data from NOAA~\cite{hannak2012tweetin,keller2005warm}. Using urban areas in the United States as the area of interest, the tweets are passed to a sentiment analyzer that has a multi-level process. The researchers first determine keywords which are identified from public events (e.g., entertainment or natural disasters), they then identify the mood state, and finally assign sentiment scores. To correlate the weather with the tweets they use a Generalized Mixed Model to display the non-linear relationship between emotion and weather. Using multiple variables for weather (temperature, temperature change, precipitation, snow depth, wind speed, solar energy, and hail), they determine the connection to hostility-anger, depression-dejection, fatigue-inertia, and sleepiness-freshness. Their results indicate that the warmer temperatures create an angrier atmosphere, lower depression, and less sleepiness, and they determine the influence of temperature to mood is trivial. Their visualization is limited to graphs~\cite{hannak2012tweetin}. Other than using urban areas in USA the researchers see relationships between temperature, humidity, and atmospheric pressure for tweets in the United States and weather data from Weather Underground. Using Linguistic Inquiry and Word Count for sentiment classification they see a pattern with temperature and emotion of every state in the United States. Using regression analysis they find that the warmer states have a happier mood than the colder states. Their visualization is limited to a bar chart.
+
+These works are limited in visualization and usability study. Using past data is useful for our training and testing model; however, having a live view of what Twitter users feel is what we aim for in this work.
+
+
+\section{Sentiment Analysis in Social Media}
+
+Sentiment analysis has been studied vastly. There are various methods to detect the sentiment of a sentence. However, in regards to tweets sentences may be incomplete, because a tweet is limited to 140 characters and the need to express oneself is limited to short meaningful phrases. We find abbreviations, neologisms, acronyms, hashtags, emoticons, and URL's throughout most tweets.
+
+Certain features need to be extracted and some need to be filtered out. Filtering of URL's, usernames, Twitter special words, and emoticons may be needed in certain scenarios~\cite{pak2010twitter}. Stop words (i.e., a, an, the, etc.) are also removed due to not adding any extra sentiment information. For classifying the tweets, a number of different methods are used, and the most prevalent one is the Naive Bayes classifier~\cite{pak2010twitter}. Emoticons are used as basis for sentiment classification for classifying tweets as positive or negative for the training purposes~\cite{keller2005warm,pak2010twitter}.
+
+Using emoticons for classifying training data is novel; however, most tweets gathered in the live feed have a very low count of emoticons. Thus, emoticons are not employed in our method. Filtering of URL's and usernames is used for our method. We also add the filtering process to drop phrases beginning with hashtags.
+
+\section{Visualizations}
+
+\subsection{Clustering}
+
+Although clustering of data has been extensively studied, it remains a non-trivial task to deal with temporal and time series data. Weather data needs to be clustered based on values, proximities, and changes throughout the given time span. There have been various visualization techniques for time series data. Visualizing time series data using spirals for large data sets can better identify periodic structures in data~\cite{pak2010twitter}. Using wavelet to transform data along a multi-resolution temporal representation to find clusters with similar trends is a useful method for exploring data in a time series fashion~\cite{woodring2009multiscale}. Applying smooth data histograms for visualizing clusters in self-organizing maps is a simple method for 2D data sets~\cite{pampalk2002using}.
+
+The mass majority of clustering visualizations uses k-means clustering on the basis of their algorithms~\cite{li2014nasty,weber2001visualizing}. We choose to follow this pattern as well, as K-means is a widely chosen algorithm that gives reasonably good results ~\cite{weber2001visualizing,jain2010data}.
+
+\subsection{Bundling}
+
+The correlation between multiple entities (e.g., various weather and emotion patterns in our study) can be fundamentally represented as a graph. However, graph visualization remains a challenging task. Severe visual clutter can be easily incurred if we directly draw all edges as straight lines, even with some optimization techniques, such as force-directed placement of vertices or clustering of vertices~\cite{KAUFMANN2001}.
+
+To address this issue, Holen~\cite{holten2006hierarchical} proposed a concept of \emph{edge bundling} that groups the related edges of a hierarchical graph together as a set of smooth curved bundles, and thus can significantly reduce visual cluster. Holen et al.~\cite{holten2009force} extended the original edge bundling method and presented force directed edge bundling (FDEB) for a general graph without hierarchy. Other researchers have also made similar efforts to generalize edge bundling~\cite{cui2008geometry,telea2010image,ersoy2011skeleton,gansner2011multilevel}. Few efforts have been dedicated to creating extensions in 3D space. Lambert et al.~\cite{5571244} presented a 3D edge bundling to visualize geographical networks on the Earth surface. B\"{o}ttger et al.~\cite{bottger2014three} presented mean-shift edge bundling to visualize 3D functional connectivity across the cortical regions of the brain. Their method combines FDEB and kernel density estimation edge bundling (KDEEB)~\cite{hurter2012graph} with an improved numerical stability.
+
+\section{Predictions}
+
+Using the past Twitter data set, it is necessary to predict the mood for the next days. Predicting the stock market based on Twitter mood has been studied~\cite{bollen2011twitter}. The notion that the mood of Twitter users can correlate to stocks immediately is not present; however, the mood is reflected when a few days have passed. Because the general public has strong connections with the outcome of a man-made entity, there will be some form of correlation available. In our case, however, the weather is not a man-made entity. Thus, finding a correlation between weather and mood, and then predicting the mood for the future can show zero correlations. We will address this idea later in this paper.

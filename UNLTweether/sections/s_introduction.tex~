@@ -1,0 +1,22 @@
+\maketitle
+\section{Introduction}
+
+Weather affects our daily lives, from what we wear, what activities we do, what type of transportation we use, what we eat, or even how we feel. With the increasing accuracy of weather forecasts, people can gain an idea on the type of weather they can expect for upcoming days. Activities are usually planned according to the weather outside (e.g., weddings) and alternative plans must be made in case of inclement weather. How people dress is also affected by weather; when the temperature drops people need to wear coats to stay warm. The economy is also greatly affected by the weather. Certain weather conditions can lower crop yield and cause higher prices in stores. Disastrous weather phenomena such as hurricanes, tornadoes, or even floods can cause devastation in communities resulting in homelessness, death, and destruction. Inclement weather can also cause delays in transportation on roads or via flights. We can also choose to ride our bike to work instead of driving the car if the temperature is warm enough. One thing that is an effect of all these items is how we feel.
+%----------------------------------------------------------
+\begin{itemize}
+\vspace{-.1in}
+\setlength{\topsep}{-0.1in}
+\setlength{\itemsep}{-0.05in}
+\item Are you sad that you cannot enjoy the outdoors due to rain?
+\item Do you love that it's raining so you can bundle up and read your favorite book?
+\item Do you love the snow because it's close to Christmas?
+\item Do you hate the winter because you want it to be spring?
+\end{itemize}
+\vspace{-0.05in}
+%----------------------------------------------------------
+These feelings are all brought out by the weather outside. One person can feel positive about a certain type of weather and one person can feel negative. In this work, we showcase a novel tool, named \emph{Tweether}, a visualization of real-time Twitter and weather data to show the feelings of current users and how their emotions could fluctuate. Having the weather forecast %up to 72 hours
+in the future, the emotions in current regions can be predicted.
+
+We see if the weather has any correlation to the majority of the population and we try to predict the future feelings of given weather. For example, when thinking about warm and sunny weather we naturally assume the majority of the population will be happier in comparison to dreary or cold temperatures. We plan to examine if the majority of the population follows such patterns. We will also examine how the overall sentiment changes when we filter tweets so only tweets in regards to weather are displayed.
+
+It is not enough to just determine the correlation between emotion and weather, but a novel visualization is necessary. Our work showcases a 3D map which highlights select clusters of weather. The correlation of tweets to weather is represented by a graph. We use line bundling to visualize the graph to reduce visual clutter. Introducing a clear relationship between weather and tweets, the design presents a natural manner of representing correlation. 
