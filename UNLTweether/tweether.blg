@@ -6,45 +6,45 @@ Database file #1: tweether.bib
 Warning--can't use both volume and number fields in holten2009force
 Warning--can't use both volume and number fields in hurter2012graph
 Warning--can't use both volume and number fields in telea2010image
-You've used 26 entries,
+You've used 28 entries,
             2118 wiz_defined-function locations,
-            659 strings with 8863 characters,
-and the built_in function-call counts, 10900 in all, are:
-= -- 1086
-> -- 530
-< -- 15
-+ -- 212
-- -- 182
-* -- 796
-:= -- 1713
-add.period$ -- 85
-call.type$ -- 26
-change.case$ -- 166
+            667 strings with 9210 characters,
+and the built_in function-call counts, 11816 in all, are:
+= -- 1170
+> -- 591
+< -- 16
++ -- 236
+- -- 204
+* -- 862
+:= -- 1861
+add.period$ -- 92
+call.type$ -- 28
+change.case$ -- 183
 chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 420
-empty$ -- 831
-format.name$ -- 182
-if$ -- 2335
+cite$ -- 31
+duplicate$ -- 455
+empty$ -- 897
+format.name$ -- 204
+if$ -- 2530
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 29
-newline$ -- 133
-num.names$ -- 52
-pop$ -- 186
+int.to.str$ -- 28
+missing$ -- 31
+newline$ -- 143
+num.names$ -- 56
+pop$ -- 210
 preamble$ -- 1
-purify$ -- 143
+purify$ -- 158
 quote$ -- 0
-skip$ -- 312
+skip$ -- 334
 stack$ -- 0
-substring$ -- 725
-swap$ -- 139
-text.length$ -- 15
+substring$ -- 759
+swap$ -- 150
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 98
+type$ -- 106
 warning$ -- 3
-while$ -- 105
-width$ -- 28
-write$ -- 297
+while$ -- 112
+width$ -- 30
+write$ -- 319
 (There were 3 warnings)

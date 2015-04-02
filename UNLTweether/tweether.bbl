@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{agarwal2011sentiment}
+Apoorv Agarwal, Boyi Xie, Ilia Vovsha, Owen Rambow, and Rebecca Passonneau.
+\newblock Sentiment analysis of twitter data.
+\newblock In {\em Proceedings of the Workshop on Languages in Social Media},
+  pages 30--38. Association for Computational Linguistics, 2011.
+
 \bibitem{bollen2011twitter}
 Johan Bollen, Huina Mao, and Xiaojun Zeng.
 \newblock Twitter mood predicts the stock market.
@@ -130,6 +136,12 @@ Bo~Pang, Lillian Lee, and Shivakumar Vaithyanathan.
 \newblock In {\em Proceedings of the ACL-02 Conference on Empirical Methods in
   Natural Language Processing - Volume 10}, EMNLP '02, pages 79--86,
   Stroudsburg, PA, USA, 2002. Association for Computational Linguistics.
+
+\bibitem{park2013mood}
+Kunwoo Park, Seonggyu Lee, Eunae Kim, Minjee Park, Juyong Park, and Meeyoung
+  Cha.
+\newblock Mood and weather: Feeling the heat?
+\newblock In {\em ICWSM}, 2013.
 
 \bibitem{Plutchik2002}
 Robert Plutchik.
