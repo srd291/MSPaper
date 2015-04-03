@@ -30,9 +30,9 @@ Using emoticons for classifying training data is novel; however, most tweets gat
 
 \subsection{Clustering}
 
-Although clustering of data has been extensively studied, it remains a non-trivial task to deal with temporal and time series data. Weather data needs to be clustered based on values, proximities, and changes throughout the given time span. There have been various visualization techniques for time series data. Visualizing time series data using spirals for large data sets can better identify periodic structures in data~\cite{pak2010twitter}. Using wavelet to transform data along a multi-resolution temporal representation to find clusters with similar trends is a useful method for exploring data in a time series fashion~\cite{woodring2009multiscale}. Applying smooth data histograms for visualizing clusters in self-organizing maps is a simple method for 2D data sets~\cite{pampalk2002using}.
+Although clustering of data has been extensively studied, it remains a non-trivial task to deal with temporal and time series data. Weather data needs to be clustered based on values, proximities, and changes throughout the given time span. There have been various visualization techniques for time series data. Visualizing time series data using spirals for large data sets can better identify periodic structures in data~\cite{weber2001visualizing}. Using wavelet to transform data along a multi-resolution temporal representation to find clusters with similar trends is a useful method for exploring data in a time series fashion~\cite{woodring2009multiscale}. Applying smooth data histograms for visualizing clusters in self-organizing maps is a simple method for 2D data sets~\cite{pampalk2002using}.
 
-The mass majority of clustering visualizations uses k-means clustering on the basis of their algorithms~\cite{li2014nasty,weber2001visualizing}. We choose to follow this pattern as well, as K-means is a widely chosen algorithm that gives reasonably good results ~\cite{weber2001visualizing,jain2010data}.
+The mass majority of clustering visualizations uses k-means clustering on the basis of their algorithms~\cite{weber2001visualizing,woodring2009multiscale}. We choose to follow this pattern as well, as K-means is a widely chosen algorithm that gives reasonably good results ~\cite{weber2001visualizing,jain2010data}.
 
 \subsection{Bundling}
 

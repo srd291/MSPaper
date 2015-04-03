@@ -12,12 +12,12 @@
 \contentsline {section}{\numberline {3.1}Data Sets}{10}
 \contentsline {section}{\numberline {3.2}Weather Clustering}{11}
 \contentsline {section}{\numberline {3.3}Sentiment Classification}{13}
-\contentsline {section}{\numberline {3.4}Correlation}{14}
+\contentsline {section}{\numberline {3.4}Correlation}{15}
 \contentsline {section}{\numberline {3.5}Prediction}{16}
-\contentsline {section}{\numberline {3.6}Visualization}{19}
+\contentsline {section}{\numberline {3.6}Visualization}{18}
 \contentsline {subsection}{\numberline {3.6.1}Layers}{19}
-\contentsline {subsection}{\numberline {3.6.2}Cloud Representation}{20}
-\contentsline {subsection}{\numberline {3.6.3}Edge Bundling}{21}
+\contentsline {subsection}{\numberline {3.6.2}Cloud Representation}{19}
+\contentsline {subsection}{\numberline {3.6.3}Edge Bundling}{20}
 \contentsline {chapter}{\chapternumberline {4}Results}{24}
 \contentsline {section}{\numberline {4.1}Tweet Weather Correlation}{24}
 \contentsline {subsection}{\numberline {4.1.1}All Tweets}{25}

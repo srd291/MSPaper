@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.13)  2 APR 2015 11:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.13)  3 APR 2015 01:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -611,81 +611,83 @@ File: ./images/PNG/sentiment_t1.png Graphic file (type png)
 
 <use ./images/PNG/sentiment_t1.png>
 Package pdftex.def Info: ./images/PNG/sentiment_t1.png used on input line 108.
-(pdftex.def)             Requested size: 390.25537pt x 195.13504pt.
+(pdftex.def)             Requested size: 303.53268pt x 151.77112pt.
 
 <./images/PNG/sentiment_t2.png, id=73, 677.53125pt x 338.76563pt>
 File: ./images/PNG/sentiment_t2.png Graphic file (type png)
 
 <use ./images/PNG/sentiment_t2.png>
 Package pdftex.def Info: ./images/PNG/sentiment_t2.png used on input line 110.
-(pdftex.def)             Requested size: 390.25537pt x 195.13504pt.
- [14] [15 <./images/PNG/sentiment_t1.png> <./images/PNG/sentiment_t2.png>]
-<./images/PNG/correlation.png, id=86, 428.802pt x 92.9874pt>
+(pdftex.def)             Requested size: 303.53268pt x 151.77112pt.
+
+<./images/PNG/correlation.png, id=74, 428.802pt x 92.9874pt>
 File: ./images/PNG/correlation.png Graphic file (type png)
 
 <use ./images/PNG/correlation.png>
-Package pdftex.def Info: ./images/PNG/correlation.png used on input line 146.
+Package pdftex.def Info: ./images/PNG/correlation.png used on input line 123.
 (pdftex.def)             Requested size: 433.62003pt x 94.0357pt.
- [16 <./images/PNG/correlation.png>]
+ [14 <./images/PNG/sentiment_t1.png> <./images/PNG/sentiment_t2.png>] [15 <./im
+ages/PNG/correlation.png>] [16]
 <./images/PNG/predict.png, id=91, 581.92406pt x 150.5625pt>
 File: ./images/PNG/predict.png Graphic file (type png)
 
 <use ./images/PNG/predict.png>
-Package pdftex.def Info: ./images/PNG/predict.png used on input line 184.
+Package pdftex.def Info: ./images/PNG/predict.png used on input line 185.
 (pdftex.def)             Requested size: 346.89734pt x 89.75464pt.
-
-<./images/PNG/endpoints_1.png, id=92, 433.62pt x 289.08pt>
+ [17 <./images/PNG/predict.png>] [18] [19]
+<./images/PNG/endpoints_1.png, id=104, 433.62pt x 289.08pt>
 File: ./images/PNG/endpoints_1.png Graphic file (type png)
 
 <use ./images/PNG/endpoints_1.png>
-Package pdftex.def Info: ./images/PNG/endpoints_1.png used on input line 196.
+Package pdftex.def Info: ./images/PNG/endpoints_1.png used on input line 281.
 (pdftex.def)             Requested size: 143.0954pt x 95.39668pt.
 
-<./images/PNG/endpoints_2.png, id=93, 433.62pt x 289.08pt>
+<./images/PNG/endpoints_2.png, id=105, 433.62pt x 289.08pt>
 File: ./images/PNG/endpoints_2.png Graphic file (type png)
 
 <use ./images/PNG/endpoints_2.png>
-Package pdftex.def Info: ./images/PNG/endpoints_2.png used on input line 197.
+Package pdftex.def Info: ./images/PNG/endpoints_2.png used on input line 282.
 (pdftex.def)             Requested size: 143.0954pt x 95.39668pt.
 
-<./images/PNG/endpoints_3.png, id=94, 433.62pt x 289.08pt>
+<./images/PNG/endpoints_3.png, id=106, 433.62pt x 289.08pt>
 File: ./images/PNG/endpoints_3.png Graphic file (type png)
 
 <use ./images/PNG/endpoints_3.png>
-Package pdftex.def Info: ./images/PNG/endpoints_3.png used on input line 198.
+Package pdftex.def Info: ./images/PNG/endpoints_3.png used on input line 283.
 (pdftex.def)             Requested size: 143.0954pt x 95.39668pt.
 
-Overfull \hbox (14.3338pt too wide) in paragraph at lines 195--202
+Overfull \hbox (14.3338pt too wide) in paragraph at lines 280--287
  []$ 
  []
 
-[17 <./images/PNG/predict.png>] [18 <./images/PNG/endpoints_1.png> <./images/PN
-G/endpoints_2.png> <./images/PNG/endpoints_3.png>] [19] [20]
-<./images/PNG/edge_line.png, id=113, 505.89pt x 209.583pt>
+[20 <./images/PNG/endpoints_1.png> <./images/PNG/endpoints_2.png> <./images/PNG
+/endpoints_3.png>] <./images/PNG/edge_line.png, id=113, 505.89pt x 209.583pt>
 File: ./images/PNG/edge_line.png Graphic file (type png)
 
 <use ./images/PNG/edge_line.png>
-Package pdftex.def Info: ./images/PNG/edge_line.png used on input line 326.
+Package pdftex.def Info: ./images/PNG/edge_line.png used on input line 330.
 (pdftex.def)             Requested size: 325.21501pt x 134.73387pt.
 
 <./images/PNG/edge_bundle.png, id=114, 505.89pt x 209.583pt>
 File: ./images/PNG/edge_bundle.png Graphic file (type png)
 
 <use ./images/PNG/edge_bundle.png>
-Package pdftex.def Info: ./images/PNG/edge_bundle.png used on input line 328.
+Package pdftex.def Info: ./images/PNG/edge_bundle.png used on input line 332.
 (pdftex.def)             Requested size: 325.21501pt x 134.73387pt.
 
 <./images/PNG/bundle_details.png, id=115, 704.8734pt x 467.8278pt>
 File: ./images/PNG/bundle_details.png Graphic file (type png)
 
 <use ./images/PNG/bundle_details.png>
-Package pdftex.def Info: ./images/PNG/bundle_details.png used on input line 340
+Package pdftex.def Info: ./images/PNG/bundle_details.png used on input line 344
 .
 (pdftex.def)             Requested size: 325.21501pt x 215.853pt.
- [21] [22 <./images/PNG/edge_line.png> <./images/PNG/edge_bundle.png>]) (./sect
-ions/s_result.tex [23 <./images/PNG/bundle_details.png>] [24
+ [21 <./images/PNG/edge_line.png> <./images/PNG/edge_bundle.png>] [22 <./images
+/PNG/bundle_details.png>])
+(./sections/s_result.tex [23] [24
 
-] <./images/PNG/ppp.png, id=132, 1385.175pt x 216.81pt>
+]
+<./images/PNG/ppp.png, id=132, 1385.175pt x 216.81pt>
 File: ./images/PNG/ppp.png Graphic file (type png)
 
 <use ./images/PNG/ppp.png>
@@ -781,17 +783,18 @@ Overfull \hbox (5.66615pt too wide) in paragraph at lines 99--115
 
 ]) (./sections/s_conclusion.tex [33] [34
 
-])
-(./tweether.bbl [35]
+]) [35]
+(./tweether.bbl
 bibitemlist
 [36
+
 
 ] [37] [38] [39])
 
 Class memoir Warning: The material used in the footer is too large
 (10.14995pt) for the given foot skip (0.0pt), it is recommended to
 either increase the foot skip or redesign the fotoer
-(in both cases you will find help in the memoir manual). on input line 118.
+(in both cases you will find help in the memoir manual). on input line 119.
 
 [40]
 \tf@toc=\write4
@@ -801,7 +804,7 @@ either increase the foot skip or redesign the fotoer
 Here is how much of TeX's memory you used:
  6140 strings out of 493304
  89264 string characters out of 6139871
- 197862 words of memory out of 5000000
+ 197863 words of memory out of 5000000
  9506 multiletter control sequences out of 15000+600000
  9147 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -816,7 +819,7 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmti12.pfb>
-Output written on tweether.pdf (44 pages, 13830120 bytes).
+Output written on tweether.pdf (44 pages, 13831864 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  131 compressed objects within 2 object streams
